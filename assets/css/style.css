@@ -196,3 +196,18 @@ header {
 .log-out-btn {
   color: var(--red);
 }
+
+main {
+  padding: 20px;
+  height: calc(100% - 61px);
+  overflow: auto;
+}
+
+main::-webkit-scrollbar {
+  width: 4px;
+}
+
+main::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: var(--poseidon-200);
+}
