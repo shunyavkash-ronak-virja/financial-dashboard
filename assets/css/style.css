@@ -33,6 +33,9 @@ aside {
 
 .sidebar-link-block {
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .sidebar-link-block::-webkit-scrollbar {
@@ -42,12 +45,6 @@ aside {
 .sidebar-link-block::-webkit-scrollbar-thumb {
   border-radius: 4px;
   background-color: var(--poseidon-400);
-}
-
-.sidebar-link-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 }
 
 .sidebar-link {
