@@ -1,0 +1,166 @@
+:root {
+  --black: #000000;
+  --primary: #0a2647;
+  --poseidon: #163b63;
+  --poseidon-100: #243b53;
+  --poseidon-200: #5f7184;
+  --poseidon-300: #c7d5e3;
+  --poseidon-400: #d9e2ec;
+  --white: #ffffff;
+  --white-100: #e8f0f7;
+  --white-200: #eaf1f7;
+  --white-300: #f6f8fa;
+  --white-400: #f5f8fc;
+  --green: #399918;
+  --red: #ff0000;
+  --transparent: transparent;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.2;
+  font-family: "Roboto", sans-serif;
+  color: var(--poseidon-100);
+  background-color: var(--white-100);
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  padding-inline: 20px;
+  margin-inline: auto;
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding-inline: 16px;
+  }
+}
+
+.h1,
+h1,
+.h2,
+h2,
+.h3,
+h3,
+.h4,
+h4,
+.h5,
+h5,
+.h6,
+h6 {
+  font-weight: 500;
+}
+
+.h1,
+h1:not(:where(.h2, .h3, .h4, .h5, .h6)) {
+  font-size: 55px;
+}
+
+@media (max-width: 991px) {
+  .h1,
+  h1:not(:where(.h2, .h3, .h4, .h5, .h6)) {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 767px) {
+  .h1,
+  h1:not(:where(.h2, .h3, .h4, .h5, .h6)) {
+    font-size: 40px;
+  }
+}
+
+.h2,
+h2:not(:where(.h1, .h3, .h4, .h5, .h6)) {
+  font-size: 45px;
+}
+
+@media (max-width: 991px) {
+  .h2,
+  h2:not(:where(.h1, .h3, .h4, .h5, .h6)) {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .h2,
+  h2:not(:where(.h1, .h3, .h4, .h5, .h6)) {
+    font-size: 35px;
+  }
+}
+
+.h3,
+h3:not(:where(.h1, .h2, .h4, .h5, .h6)) {
+  font-size: 34px;
+}
+
+.h4,
+h4:not(:where(.h1, .h2, .h3, .h5, .h6)) {
+  font-size: 30px;
+}
+
+.h5,
+h5:not(:where(.h1, .h2, .h3, .h4, .h6)) {
+  font-size: 28px;
+}
+
+.h6,
+h6:not(:where(.h1, .h2, .h3, .h4, .h5)) {
+  font-size: 20px;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  -webkit-user-drag: none;
+}
+
+.img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+svg {
+  display: block;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+button {
+  background-color: var(--transparent);
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+.primary-icon {
+  width: 20px;
+  aspect-ratio: 1;
+  color: var(--poseidon-200);
+  transition: all 0.3s ease-in-out;
+}
+
+.primary-icon:hover {
+  color: var(--primary);
+}

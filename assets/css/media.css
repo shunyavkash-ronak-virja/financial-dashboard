@@ -1,0 +1,29 @@
+@media (max-width: 991px) {
+  .aside-logo {
+    max-width: 118px;
+    max-height: 22px;
+  }
+
+  .aside-close-btn,
+  .menu-btn {
+    display: block;
+  }
+
+  aside {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-100%);
+    transition: all 0.3s ease-in-out;
+  }
+
+  aside.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
+}
