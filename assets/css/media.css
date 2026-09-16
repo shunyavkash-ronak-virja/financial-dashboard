@@ -18,12 +18,26 @@
     opacity: 0;
     visibility: hidden;
     transform: translateX(-100%);
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in;
   }
 
   aside.active {
     opacity: 1;
     visibility: visible;
     transform: translateX(0);
+  }
+}
+
+@media (max-width: 767px) {
+  aside {
+    padding-inline: 16px;
+  }
+
+  .sidebar-link {
+    padding-inline: 12px;
+  }
+
+  .header-stack {
+    gap: 18px;
   }
 }

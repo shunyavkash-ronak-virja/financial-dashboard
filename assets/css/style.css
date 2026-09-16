@@ -11,6 +11,7 @@ aside {
   color: var(--poseidon-100);
   display: flex;
   flex-direction: column;
+  gap: 30px;
   border-right: 1px solid var(--poseidon-300);
 }
 
@@ -19,7 +20,6 @@ aside {
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-  margin-bottom: 30px;
 }
 
 .aside-logo {
