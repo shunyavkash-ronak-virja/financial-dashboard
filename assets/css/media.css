@@ -26,6 +26,23 @@
     visibility: visible;
     transform: translateX(0);
   }
+
+  /* .dashboard-wrapper::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--white-400);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .dashboard-wrapper::after:is(:where(aside).active ~ *) {
+    opacity: 0.4;
+    visibility: visible;
+  } */
 }
 
 @media (max-width: 767px) {
@@ -37,7 +54,37 @@
     padding-inline: 12px;
   }
 
+  /* ----- Header ----- */
+  header {
+    padding-inline: 16px;
+  }
+
   .header-stack {
     gap: 18px;
+  }
+
+  .user-avatar-wrapper {
+    gap: 8px;
+  }
+
+  .other-info-name {
+    display: none;
+  }
+
+  /* ----- Main Panel ----- */
+  main {
+    padding-inline: 16px;
+  }
+
+  .quick-actions-title {
+    font-size: 18px;
+  }
+
+  .quick-actions-wrapper {
+    padding-inline: 18px;
+  }
+
+  .quick-actions-btn {
+    font-size: 14px;
   }
 }

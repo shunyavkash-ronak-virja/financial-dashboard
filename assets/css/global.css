@@ -6,6 +6,7 @@
   --poseidon-200: #5f7184;
   --poseidon-300: #c7d5e3;
   --poseidon-400: #d9e2ec;
+  --poseidon-500: #415a75;
   --white: #ffffff;
   --white-100: #e8f0f7;
   --white-200: #eaf1f7;
@@ -14,7 +15,8 @@
   --green: #399918;
   --red: #ff0000;
   --transparent: transparent;
-  --font-roboto: "Roboto", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --font-charis-sil: "Charis SIL", serif;
 }
 
 * {
@@ -26,7 +28,7 @@
 body {
   font-size: 16px;
   line-height: 1.2;
-  font-family: var(--font-roboto);
+  font-family: var(--font-inter);
   color: var(--poseidon-100);
   background-color: var(--white-100);
 }
@@ -148,6 +150,7 @@ button {
   display: block;
   background-color: var(--transparent);
   font-family: inherit;
+  font-size: inherit;
   border: none;
   cursor: pointer;
 }

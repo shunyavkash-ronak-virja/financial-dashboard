@@ -112,8 +112,19 @@ header {
 .user-avatar-wrapper {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 10px;
   cursor: pointer;
+}
+
+.other-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.other-info-name {
+  font-size: 14px;
+  text-transform: capitalize;
 }
 
 .user-avatar {
@@ -139,6 +150,7 @@ header {
   position: absolute;
   top: calc(100% + 10px);
   right: 0;
+  z-index: 900;
   padding: 12px;
   background-color: var(--white);
   border-radius: 12px;
@@ -203,6 +215,7 @@ header {
   opacity: 1;
 }
 
+/* ----- Main Panel ----- */
 main {
   padding: 20px;
   height: calc(100% - 61px);
@@ -216,4 +229,47 @@ main::-webkit-scrollbar {
 main::-webkit-scrollbar-thumb {
   border-radius: 8px;
   background-color: var(--poseidon-200);
+}
+
+.quick-actions-wrapper {
+  background-color: var(--white);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--poseidon-300);
+  box-shadow: 0 0 10px var(--poseidon-400);
+}
+
+.quick-actions-title {
+  font-size: 20px;
+  margin-bottom: 18px;
+  text-transform: capitalize;
+}
+
+.quick-actions-btn-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.quick-actions-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 8px 12px;
+  border: 1px solid var(--poseidon-300);
+  border-radius: 10px;
+  text-transform: capitalize;
+  transition: all 0.3s ease-in-out;
+}
+
+.quick-actions-btn:hover {
+  border-color: var(--poseidon-500);
+  background-color: var(--poseidon-500);
+  color: var(--white);
+}
+
+.quick-actions-icon {
+  width: 18px;
 }

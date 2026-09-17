@@ -9,7 +9,7 @@
     <!----- Google Font ----->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Charis+SIL:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
     <!----- Custom Style ----->
     <link rel="stylesheet" href="assets/css/mian.css">
@@ -100,8 +100,11 @@
                     </button>
                     <div class="user-profile">
                         <div class="user-avatar-wrapper">
-                            <div class="flex-shrink-0 user-avatar">
-                                <img class="user-avatar-img" src="assets/images/avatar-img.png" alt="user-avatar-img">
+                            <div class="other-info">
+                                <div class="flex-shrink-0 user-avatar">
+                                    <img class="user-avatar-img" src="assets/images/avatar-img.png" alt="user-avatar-img">
+                                </div>
+                                <div class="other-info-name">Mason Clark</div>
                             </div>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 user-profile-chevron-icon lucide lucide-chevron-down">
                                 <path d="m6 9 6 6 6-6" />
@@ -133,6 +136,41 @@
                 </div>
             </header>
             <main>
+                <div class="quick-actions-wrapper">
+                    <div class="quick-actions-title">Quick actions</div>
+                    <div class="quick-actions-btn-wrapper">
+                        <button class="quick-actions-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="quick-actions-icon lucide lucide-plus">
+                                <path d="M5 12h14" />
+                                <path d="M12 5v14" />
+                            </svg>
+                            Add Money
+                        </button>
+                        <button class="quick-actions-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="quick-actions-icon lucide lucide-trending-up">
+                                <path d="M16 7h6v6" />
+                                <path d="m22 7-8.5 8.5-5-5L2 17" />
+                            </svg>
+                            Buy
+                        </button>
+                        <button class="quick-actions-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="quick-actions-icon lucide lucide-trending-down">
+                                <path d="M16 17h6v-6" />
+                                <path d="m22 17-8.5-8.5-5 5L2 7" />
+                            </svg>
+                            Sell
+                        </button>
+                        <button class="quick-actions-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="quick-actions-icon lucide lucide-arrow-right-left">
+                                <path d="m16 3 4 4-4 4" />
+                                <path d="M20 7H4" />
+                                <path d="m8 21-4-4 4-4" />
+                                <path d="M4 17h16" />
+                            </svg>
+                            Transfer
+                        </button>
+                    </div>
+                </div>
             </main>
         </div>
     </div>
