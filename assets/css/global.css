@@ -149,6 +149,7 @@ ol {
 button {
   display: block;
   background-color: var(--transparent);
+  color: inherit;
   font-family: inherit;
   font-size: inherit;
   border: none;
@@ -168,4 +169,18 @@ button {
 
 .primary-icon:hover {
   color: var(--primary);
+}
+
+.outline {
+  padding: 20px;
+  background-color: var(--white);
+  border: 1px solid var(--poseidon-300);
+  border-radius: 12px;
+  box-shadow: 0 0 10px var(--poseidon-400);
+}
+
+.content-title {
+  font-size: 20px;
+  margin-bottom: 18px;
+  text-transform: capitalize;
 }

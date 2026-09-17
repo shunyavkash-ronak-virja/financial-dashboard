@@ -136,8 +136,8 @@
                 </div>
             </header>
             <main>
-                <div class="quick-actions-wrapper">
-                    <div class="quick-actions-title">Quick actions</div>
+                <div class="outline quick-actions-wrapper">
+                    <div class="content-title">Quick actions</div>
                     <div class="quick-actions-btn-wrapper">
                         <button class="quick-actions-btn">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="quick-actions-icon lucide lucide-plus">
@@ -171,9 +171,24 @@
                         </button>
                     </div>
                 </div>
+                <div class="chart-wrapper">
+                    <div class="outline chart-content">
+                        <div class="content-title">Investment performance</div>
+                        <canvas id="investmentChart"></canvas>
+                    </div>
+                    <div class="outline">
+                        <div class="content-title">Asset allocation</div>
+                        <canvas id="assetAllocationChart"></canvas>
+                    </div>
+                </div>
             </main>
         </div>
     </div>
+
+    <!----- Chart Js ----->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.5.1/chart.min.js"></script> -->
+
 
     <!----- Custom Script ----->
     <script src="assets/js/script.js"></script>

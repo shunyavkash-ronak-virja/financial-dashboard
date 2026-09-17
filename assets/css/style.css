@@ -220,6 +220,9 @@ main {
   padding: 20px;
   height: calc(100% - 61px);
   overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 main::-webkit-scrollbar {
@@ -229,20 +232,6 @@ main::-webkit-scrollbar {
 main::-webkit-scrollbar-thumb {
   border-radius: 8px;
   background-color: var(--poseidon-200);
-}
-
-.quick-actions-wrapper {
-  background-color: var(--white);
-  padding: 20px;
-  border-radius: 10px;
-  border: 1px solid var(--poseidon-300);
-  box-shadow: 0 0 10px var(--poseidon-400);
-}
-
-.quick-actions-title {
-  font-size: 20px;
-  margin-bottom: 18px;
-  text-transform: capitalize;
 }
 
 .quick-actions-btn-wrapper {
@@ -272,4 +261,10 @@ main::-webkit-scrollbar-thumb {
 
 .quick-actions-icon {
   width: 18px;
+}
+
+.chart-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
