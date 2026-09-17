@@ -71,6 +71,7 @@ aside {
 /* ----- Header ----- */
 .dashboard-main-wrapper {
   flex: 1;
+  min-width: 0;
 }
 
 header {
@@ -265,6 +266,10 @@ main::-webkit-scrollbar-thumb {
 
 .chart-wrapper {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
+}
+
+.chart-content {
+  min-width: 0;
 }
