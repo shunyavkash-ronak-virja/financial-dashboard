@@ -195,6 +195,12 @@ header {
 
 .log-out-btn {
   color: var(--red);
+  opacity: 0.8;
+  transition: all 0.3s ease-in-out;
+}
+
+.log-out-btn:hover {
+  opacity: 1;
 }
 
 main {
