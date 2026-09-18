@@ -94,11 +94,11 @@
     gap: 16px;
   }
 
-  .portfolio-card-wrapper {
+  .summary-card-wrapper {
     gap: 16px;
   }
 
-  .portfolio-range {
+  .summary-range {
     margin-top: 12px;
   }
 }

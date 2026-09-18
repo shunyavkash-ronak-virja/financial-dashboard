@@ -42,7 +42,8 @@ if (investmentChart) {
         },
         options: {
             responsive: true,
-            aspectRatio: 1.5,
+            // maintainAspectRatio: true,
+            aspectRatio: 1.4,
             scales: {
                 y: {
                     beginAtZero: true,
@@ -71,7 +72,7 @@ if (assetAllocationChart) {
         },
         options: {
             responsive: true,
-            aspectRatio: 1.5,
+            aspectRatio: 1.4,
         },
     });
 }
@@ -84,7 +85,7 @@ function updateChartAspectRatio() {
     } else if (window.innerWidth <= 767) {
         aspectRatio = 1.8;
     } else {
-        aspectRatio = 1.5;
+        aspectRatio = 1.4;
     }
     if (investmentChartInstance) {
         investmentChartInstance.options.aspectRatio = aspectRatio;
@@ -98,4 +99,60 @@ function updateChartAspectRatio() {
 if (investmentChartInstance || assetAllocationChartInstance) {
     updateChartAspectRatio();
     window.addEventListener("resize", updateChartAspectRatio);
+}
+
+const investmentDetailChart = document.getElementById("investmentDetailChart");
+let investmentDetailChartInstance = null;
+if (investmentDetailChart) {
+    investmentDetailChartInstance = new Chart(investmentDetailChart, {
+        type: "line",
+        data: {
+            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jan", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            datasets: [
+                {
+                    label: "Current Value",
+                    data: [2, 12, 9, 16, 8, 10, 12, 16, 12, 20, 10, 12],
+                    borderWidth: 1,
+                    backgroundColor: ["#415a75"],
+                },
+                {
+                    label: "Initial Investment",
+                    data: [2, 12, 9, 16, 10, 6, 4, 20, 18, 20, 22, 16],
+                    borderWidth: 1,
+                    backgroundColor: ["#c7d5e3"],
+                },
+            ],
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            aspectRatio: 3.2,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                },
+            },
+        },
+    });
+}
+
+function updateInvestmentDetailChartAspectRatio() {
+    if (!investmentDetailChartInstance) return;
+    let aspectRatio;
+    if (window.innerWidth <= 575) {
+        aspectRatio = 1.2;
+    } else if (window.innerWidth <= 767) {
+        aspectRatio = 2.2;
+    } else {
+        aspectRatio = 3.2;
+    }
+    investmentDetailChartInstance.options.aspectRatio = aspectRatio;
+    investmentDetailChartInstance.resize();
+}
+if (investmentDetailChartInstance) {
+    updateInvestmentDetailChartAspectRatio();
+    window.addEventListener(
+        "resize",
+        updateInvestmentDetailChartAspectRatio
+    );
 }

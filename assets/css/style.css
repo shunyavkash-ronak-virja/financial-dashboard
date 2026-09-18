@@ -269,32 +269,32 @@ main::-webkit-scrollbar-thumb {
   gap: 20px;
 }
 
-.portfolio-card-wrapper {
+.summary-card-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 20px;
 }
 
-.portfolio-card {
+.summary-card {
   border: 1px solid var(--poseidon-300);
   border-radius: 10px;
   text-transform: capitalize;
   padding: 12px 16px;
 }
 
-.portfolio-label {
+.summary-label {
   font-size: 14px;
   color: var(--poseidon-200);
 }
 
-.portfolio-value {
+.summary-value {
   font-size: 18px;
   font-weight: 600;
   margin-top: 4px;
   font-family: var(--font-charis-sil);
 }
 
-.portfolio-range {
+.summary-range {
   display: flex;
   align-items: center;
   font-size: 12px;
@@ -302,7 +302,7 @@ main::-webkit-scrollbar-thumb {
   margin-top: 20px;
 }
 
-.portfolio-range-icon {
+.summary-range-icon {
   width: 14px;
 }
 
@@ -412,4 +412,8 @@ main::-webkit-scrollbar-thumb {
 
 .market-table {
   min-width: 420px;
+}
+
+.investment-detail-table {
+  min-width: 720px;
 }
