@@ -97,4 +97,8 @@
   .portfolio-card-wrapper {
     gap: 16px;
   }
+
+  .portfolio-range {
+    margin-top: 12px;
+  }
 }

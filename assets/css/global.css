@@ -12,7 +12,10 @@
   --white-200: #eaf1f7;
   --white-300: #f6f8fa;
   --white-400: #f5f8fc;
+  --white-500: #e0f2ee;
   --green: #399918;
+  --green-100: #65b749;
+  --green-26: #39991842;
   --red: #ff0000;
   --transparent: transparent;
   --font-inter: "Inter", sans-serif;
@@ -193,11 +196,16 @@ button {
   }
 }
 
+.min-w-0 {
+  min-width: 0;
+}
+
 .stack-head-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 12px 20px;
+  flex-wrap: wrap;
   margin-bottom: 18px;
 }
 
@@ -209,6 +217,13 @@ button {
 
 .stack-head-wrapper:has(.content-title) .content-title {
   margin-bottom: 0;
+}
+
+@media (max-width: 575px) {
+  .content-title,
+  .stack-head-wrapper {
+    margin-bottom: 14px;
+  }
 }
 
 .view-all-btn {

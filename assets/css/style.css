@@ -71,7 +71,6 @@ aside {
 /* ----- Header ----- */
 .dashboard-main-wrapper {
   flex: 1;
-  min-width: 0;
 }
 
 header {
@@ -270,13 +269,9 @@ main::-webkit-scrollbar-thumb {
   gap: 20px;
 }
 
-.chart-content {
-  min-width: 0;
-}
-
 .portfolio-card-wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 20px;
 }
 
@@ -309,10 +304,6 @@ main::-webkit-scrollbar-thumb {
 
 .portfolio-range-icon {
   width: 14px;
-}
-
-.transactions-block {
-  min-width: 0;
 }
 
 .table-overlay {
@@ -369,5 +360,56 @@ main::-webkit-scrollbar-thumb {
 }
 
 .watchlist-table {
+  min-width: 420px;
+}
+
+.market-status-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  color: var(--green);
+  border: 1px solid var(--green-100);
+  background-color: var(--white-500);
+  padding: 12px 18px;
+  margin-bottom: 18px;
+}
+
+.market-status-highlight-wrapper {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.market-status-highlight-icon {
+  width: 24px;
+}
+
+.market-status-highlight-caption {
+  display: block;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-top: 6px;
+  margin-left: 30px;
+}
+
+.market-table .market-stock {
+  text-transform: uppercase;
+}
+
+.market-status-wrapeper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.market-status-icon {
+  width: 16px;
+}
+
+.market-table {
   min-width: 420px;
 }
