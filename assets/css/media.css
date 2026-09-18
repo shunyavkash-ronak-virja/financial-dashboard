@@ -74,6 +74,7 @@
   /* ----- Main Panel ----- */
   main {
     padding-inline: 16px;
+    gap: 16px;
   }
 
   .quick-actions-title {
@@ -88,7 +89,12 @@
     font-size: 14px;
   }
 
-  .chart-wrapper {
+  .stack-wrapper {
     grid-template-columns: repeat(1, 1fr);
+    gap: 16px;
+  }
+
+  .portfolio-card-wrapper {
+    gap: 16px;
   }
 }

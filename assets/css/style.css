@@ -264,9 +264,9 @@ main::-webkit-scrollbar-thumb {
   width: 18px;
 }
 
-.chart-wrapper {
+.stack-wrapper {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
@@ -309,4 +309,50 @@ main::-webkit-scrollbar-thumb {
 
 .portfolio-range-icon {
   width: 14px;
+}
+
+.transactions-block {
+  min-width: 0;
+}
+
+.table-overlay {
+  overflow: auto;
+  border-radius: 10px;
+}
+
+.table-overlay::-webkit-scrollbar {
+  height: 4px;
+}
+
+.table-overlay::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: var(--poseidon-400);
+}
+
+.contnet-table {
+  width: 100%;
+  min-width: 540px;
+  border-collapse: collapse;
+}
+
+.table-head-row {
+  background-color: var(--poseidon-400);
+}
+
+.contnet-table th {
+  font-weight: 600;
+  text-transform: capitalize;
+  text-align: left;
+  white-space: nowrap;
+  padding: 8px 10px;
+}
+
+.contnet-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--poseidon-300);
+  text-transform: capitalize;
+}
+
+.contnet-table tbody tr:last-child td {
+  border-bottom: none;
 }
