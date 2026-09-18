@@ -46,6 +46,14 @@ body {
   }
 }
 
+.text-green {
+  color: var(--green);
+}
+
+.text-red {
+  color: var(--red);
+}
+
 .h1,
 h1,
 .h2,

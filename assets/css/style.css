@@ -356,3 +356,18 @@ main::-webkit-scrollbar-thumb {
 .contnet-table tbody tr:last-child td {
   border-bottom: none;
 }
+
+.watchlist-status-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+}
+
+.watchlist-status-icon {
+  width: 16px;
+}
+
+.watchlist-table {
+  min-width: 420px;
+}
