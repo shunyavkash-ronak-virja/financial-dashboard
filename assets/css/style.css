@@ -417,3 +417,7 @@ main::-webkit-scrollbar-thumb {
 .investment-detail-table {
   min-width: 720px;
 }
+
+.portfolio-detail-table {
+  min-width: 630px;
+}
