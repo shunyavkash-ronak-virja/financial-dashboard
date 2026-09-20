@@ -14,6 +14,7 @@ userAvatarWrapper.addEventListener("click", () => {
 document.addEventListener("click", function (event) {
   if (!userProfile.contains(event.target)) {
     userProfileStack.classList.remove("active");
+    userAvatarWrapper.classList.remove("active");
   }
 });
 
