@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adaptive Financial - Sign In</title>
+
+    <!----- Google Font ----->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Charis+SIL:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+    <!----- Custom Style ----->
+    <link rel="stylesheet" href="assets/css/mian.css">
+</head>
+
+<body>
+    <section class="authentication-section">
+        <div class="authentication-container container">
+            <div class="authentication-block">
+                <h1 class="authentication-title">Sign In</h1>
+                <form class="authentication-form sign-in-form">
+                    <div class="input-stack">
+                        <label class="input-label" for="sign-in-email">Email Address</label>
+                        <input class="authentication-input" type="email" id="sign-in-email" placeholder="Enter your email address" required>
+                    </div>
+                    <div class="input-stack">
+                        <label class="input-label" for="sign-in-Password">Password</label>
+                        <div class="password-input-wrapper">
+                            <input class="authentication-input" type="password" id="sign-in-Password" placeholder="Create a password" required>
+                            <div class="password-show-toggle disabled" data-password-toggle="">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="password-show-icon eye-open-icon icon-visibility lucide lucide-eye-icon lucide-eye">
+                                    <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="password-show-icon eye-close-icon lucide lucide-eye-off-icon lucide-eye-off">
+                                    <path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"></path>
+                                    <path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"></path>
+                                    <path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"></path>
+                                    <path d="m2 2 20 20"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="authentication-btn sign-in-btn" type="submit">Sign In</button>
+                    <div class="authentication-redirection-wrapper">Don't have an account?
+                        <a class="authentication-redirection-link" href="sign-up.html">Create one for free</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!----- Custom Script ----->
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

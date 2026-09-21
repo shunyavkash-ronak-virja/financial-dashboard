@@ -44,6 +44,10 @@ body {
   margin-inline: auto;
 }
 
+.authentication-container {
+  max-width: 546px;
+}
+
 @media (max-width: 767px) {
   .container {
     padding-inline: 16px;
@@ -166,6 +170,14 @@ button {
   font-size: inherit;
   border: none;
   cursor: pointer;
+}
+
+input {
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  background-color: var(--transparent);
 }
 
 .flex-shrink-0 {

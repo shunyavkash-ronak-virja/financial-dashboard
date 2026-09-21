@@ -1,52 +1,55 @@
-const userProfile = document.querySelector(".user-profile");
-const userAvatarWrapper = document.querySelector(".user-avatar-wrapper");
-const userProfileStack = document.querySelector(".user-profile-stack");
-const menuBtn = document.querySelector(".menu-btn");
-const asideCloseBtn = document.querySelector(".aside-close-btn");
-const aside = document.querySelector("aside");
-const dashboardWrapper = document.querySelector(".dashboard-wrapper");
+const header = document.querySelector("header");
+if (header) {
+  const userProfile = document.querySelector(".user-profile");
+  const userAvatarWrapper = document.querySelector(".user-avatar-wrapper");
+  const userProfileStack = document.querySelector(".user-profile-stack");
+  const menuBtn = document.querySelector(".menu-btn");
+  const asideCloseBtn = document.querySelector(".aside-close-btn");
+  const aside = document.querySelector("aside");
+  const dashboardWrapper = document.querySelector(".dashboard-wrapper");
+  const notificationBlock = document.querySelector(".notification-block");
+  const notificationBtn = notificationBlock.querySelector(".notification-btn");
+  const notificationDropdown = notificationBlock.querySelector(".notification-dropdown");
 
-userAvatarWrapper.addEventListener("click", () => {
-  userAvatarWrapper.classList.toggle("active");
-  userProfileStack.classList.toggle("active");
-});
+  userAvatarWrapper.addEventListener("click", () => {
+    userAvatarWrapper.classList.toggle("active");
+    userProfileStack.classList.toggle("active");
+  });
 
-document.addEventListener("click", function (event) {
-  if (!userProfile.contains(event.target)) {
-    userProfileStack.classList.remove("active");
-    userAvatarWrapper.classList.remove("active");
-  }
-});
+  document.addEventListener("click", function (event) {
+    if (!userProfile.contains(event.target)) {
+      userProfileStack.classList.remove("active");
+      userAvatarWrapper.classList.remove("active");
+    }
+  });
 
-menuBtn.addEventListener("click", () => {
-  aside.classList.add("active");
-});
+  menuBtn.addEventListener("click", () => {
+    aside.classList.add("active");
+  });
 
-asideCloseBtn.addEventListener("click", () => {
-  aside.classList.remove("active");
-});
-
-dashboardWrapper.addEventListener("click", (event) => {
-  if (
-    aside.classList.contains("active") &&
-    event.target === dashboardWrapper
-  ) {
+  asideCloseBtn.addEventListener("click", () => {
     aside.classList.remove("active");
-  }
-});
+  });
 
-const notificationBlock = document.querySelector(".notification-block");
-const notificationBtn = notificationBlock.querySelector(".notification-btn");
-const notificationDropdown = notificationBlock.querySelector(".notification-dropdown");
+  dashboardWrapper.addEventListener("click", (event) => {
+    if (
+      aside.classList.contains("active") &&
+      event.target === dashboardWrapper
+    ) {
+      aside.classList.remove("active");
+    }
+  });
 
-notificationBtn.addEventListener("click", function (event) {
-  notificationDropdown.classList.toggle("active");
-});
-document.addEventListener("click", function (event) {
-  if (!notificationBlock.contains(event.target)) {
-    notificationDropdown.classList.remove("active");
-  }
-});
+  notificationBtn.addEventListener("click", function (event) {
+    notificationDropdown.classList.toggle("active");
+  });
+  document.addEventListener("click", function (event) {
+    if (!notificationBlock.contains(event.target)) {
+      notificationDropdown.classList.remove("active");
+    }
+  });
+}
+
 
 // Investment Performance Chart -----
 const investmentChart = document.getElementById("investmentChart");
@@ -125,7 +128,6 @@ if (portfolioValue) {
     },
     options: {
       responsive: true,
-      // maintainAspectRatio: true,
       aspectRatio: 1.4,
     },
   });
@@ -240,3 +242,5 @@ if (investmentDetailChartInstance) {
     updateInvestmentDetailChartAspectRatio
   );
 }
+
+
