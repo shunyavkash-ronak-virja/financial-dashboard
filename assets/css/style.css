@@ -710,3 +710,8 @@ main::-webkit-scrollbar-thumb {
 .authentication-redirection-link:hover {
   color: var(--primary);
 }
+
+.input-error {
+  color: var(--red);
+  font-size: 12px;
+}
