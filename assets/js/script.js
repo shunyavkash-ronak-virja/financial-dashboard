@@ -385,3 +385,4 @@ passwordToggles.forEach(function (toggle) {
     }
   });
 });
+
