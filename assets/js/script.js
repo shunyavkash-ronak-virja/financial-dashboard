@@ -243,9 +243,6 @@ if (investmentDetailChartInstance) {
   );
 }
 
-// ==========================================
-// SIGN UP
-// ==========================================
 const signUpForm = document.querySelector(".sign-up-form");
 if (signUpForm) {
   signUpForm.addEventListener("submit", function (event) {
@@ -256,17 +253,14 @@ if (signUpForm) {
     const password = document.querySelector("#sign-up-Password").value;
     const confirmPassword = document.querySelector("#sign-up-confirm-password").value;
 
-    // Check name
     if (name === "") {
       showError("#sign-up-name", "Please enter your full name.");
       return;
     }
-    // Check email
     if (email === "") {
       showError("#sign-up-email", "Please enter your email address.");
       return;
     }
-    // Check password
     if (password === "") {
       showError("#sign-up-Password", "Please enter a password.");
       return;
@@ -275,7 +269,6 @@ if (signUpForm) {
       showError("#sign-up-Password", "Password must be at least 8 characters.");
       return;
     }
-    // Check confirm password
     if (confirmPassword === "") {
       showError("#sign-up-confirm-password", "Please confirm your password.");
       return;
@@ -284,76 +277,57 @@ if (signUpForm) {
       showError("#sign-up-confirm-password", "Passwords do not match.");
       return;
     }
-    // Create user object
     const user = {
       name: name,
       email: email,
       password: password
     };
 
-    // Store user details
     sessionStorage.setItem("financialUser", JSON.stringify(user));
-    // Go to sign in page
     window.location.href = "sign-in.html";
   });
 }
 
-// ==========================================
-// SIGN IN
-// ==========================================
 const signInForm = document.querySelector(".sign-in-form");
 if (signInForm) {
   signInForm.addEventListener("submit", function (event) {
     event.preventDefault();
     const email = document.querySelector("#sign-in-email").value.trim();
     const password = document.querySelector("#sign-in-Password").value;
-    // Get stored user
     const storedUser = sessionStorage.getItem("financialUser");
-    // Check if user exists
+
     if (!storedUser) {
       showError("#sign-in-email", "No account found. Please create an account first.");
       return;
     }
-    // Convert stored string back to object
+
     const user = JSON.parse(storedUser);
-    // Check email
     if (email === "") {
       showError("#sign-in-email", "Please enter your email address.");
       return;
     }
-    // Check password
     if (password === "") {
       showError("#sign-in-Password", "Please enter your password.");
       return;
     }
-    // Match email and password
     if (email !== user.email || password !== user.password) {
       showError("#sign-in-Password", "Email or password is incorrect.");
       return;
     }
-    // User successfully logged in
+
     sessionStorage.setItem("isLoggedIn", "true");
-    // Go to dashboard
     window.location.href = "index.html";
   });
 }
 
-// ==========================================
-// LOGOUT
-// ==========================================
 const logoutButtons = document.querySelectorAll(".log-out-btn");
 logoutButtons.forEach(function (button) {
   button.addEventListener("click", function () {
-    // Remove login status
     sessionStorage.removeItem("isLoggedIn");
-    // Go to sign in page
     window.location.href = "sign-in.html";
   });
 });
 
-// ==========================================
-// PROTECTED PAGES
-// ==========================================
 const isSignUpPage = document.querySelector(".sign-up-form");
 const isSignInPage = document.querySelector(".sign-in-form");
 const isLoggedIn = sessionStorage.getItem("isLoggedIn");
@@ -364,70 +338,49 @@ if (!isSignUpPage && !isSignInPage) {
   }
 }
 
-// ==========================================
-// ERROR MESSAGE
-// ==========================================
 function showError(inputSelector, message) {
   const input = document.querySelector(inputSelector);
-  // Find the input-stack
   const inputStack = input.closest(".input-stack");
-  // Remove old error
   const oldError = inputStack.querySelector(".input-error");
+
   if (oldError) {
     oldError.remove();
   }
-  // Create error message
+
   const error = document.createElement("p");
   error.className = "input-error";
   error.textContent = message;
-  // Add error inside input-stack
   inputStack.appendChild(error);
 }
 
-// ==========================================
-// PASSWORD SHOW / HIDE
-// ==========================================
 const passwordToggles = document.querySelectorAll("[data-password-toggle]");
-
 passwordToggles.forEach(function (toggle) {
   const passwordInput = toggle.parentElement.querySelector("input");
   const eyeOpenIcon = toggle.querySelector(".eye-open-icon");
   const eyeCloseIcon = toggle.querySelector(".eye-close-icon");
 
-  // Check password input
   passwordInput.addEventListener("input", function () {
     if (passwordInput.value === "") {
       toggle.classList.add("disabled");
-      // Show close icon
       eyeCloseIcon.classList.add("icon-visibility");
-      // Hide open icon
       eyeOpenIcon.classList.remove("icon-visibility");
-      // Make password hidden
       passwordInput.type = "password";
-
     } else {
       toggle.classList.remove("disabled");
     }
   });
 
-  // Show / hide password
   toggle.addEventListener("click", function () {
     if (passwordInput.value === "") {
       return;
     }
     if (passwordInput.type === "password") {
-      // Show password
       passwordInput.type = "text";
-      // Hide close icon
       eyeCloseIcon.classList.remove("icon-visibility");
-      // Show open icon
       eyeOpenIcon.classList.add("icon-visibility");
     } else {
-      // Hide password
       passwordInput.type = "password";
-      // Hide open icon
       eyeOpenIcon.classList.remove("icon-visibility");
-      // Show close icon
       eyeCloseIcon.classList.add("icon-visibility");
     }
   });
