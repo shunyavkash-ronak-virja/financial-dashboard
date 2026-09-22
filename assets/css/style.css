@@ -406,6 +406,7 @@ main::-webkit-scrollbar-thumb {
 }
 
 .quick-actions-btn {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -607,41 +608,6 @@ main::-webkit-scrollbar-thumb {
   margin-bottom: 20px;
 }
 
-.authentication-form {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.input-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.input-label {
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.authentication-input {
-  border: 1px solid var(--poseidon-300);
-  padding: 10px 14px;
-  border-radius: 8px;
-  transition: all 0.3s ease-in-out;
-}
-
-.authentication-input:focus {
-  outline: none;
-  border-color: var(--poseidon-200);
-}
-
-.authentication-input::placeholder {
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--poseidon-200);
-}
-
 .authentication-btn {
   font-weight: 500;
   padding: 10px 14px;
@@ -662,7 +628,7 @@ main::-webkit-scrollbar-thumb {
   position: relative;
 }
 
-.password-input-wrapper .authentication-input {
+.password-input-wrapper .input-field {
   padding-right: 32px;
 }
 
@@ -716,9 +682,73 @@ main::-webkit-scrollbar-thumb {
   font-size: 12px;
 }
 
-.mdoal {
+.modal {
   position: fixed;
   inset: 0;
   z-index: 999;
+  display: flex;
+  padding: 20px;
   background-color: var(--black-0_16);
+  overflow: auto;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-dialog {
+  width: 100%;
+  margin: auto;
+  background-color: var(--white);
+  border-radius: 18px;
+  padding: 20px;
+  border: 1px solid var(--poseidon-300);
+  transform: scale(0.8);
+  transition: all 0.3s ease-in-out;
+}
+
+.modal.active .modal-dialog {
+  transform: scale(1);
+}
+
+.modal-close-btn {
+  width: 24px;
+  aspect-ratio: 1;
+}
+
+.modal-head-title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.modal-head-title {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.modal-head-description {
+  font-size: 18px;
+  margin-block: 12px 20px;
+}
+
+.add-money-modal {
+  max-width: 400px;
+}
+
+.modal-btn-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 12px;
+}
+
+.modal-btn {
+  padding: 4px 8px;
+  border-radius: 6px;
 }

@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Financial Dashboard</title>
 
+    <!----- Nice select css ----->
+    <link rel="stylesheet" href="assets/css/nice-select.css">
+
     <!----- Google Font ----->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -229,16 +232,59 @@
                     <div class="content-title">Quick actions</div>
                     <div class="quick-actions-btn-wrapper">
                         <div class="quick-actions-btn-stack">
-                            <button class="quick-actions-btn" type="button">
+                            <button class="quick-actions-btn" type="button" data-modal="add-money">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="quick-actions-icon lucide lucide-plus">
                                     <path d="M5 12h14" />
                                     <path d="M12 5v14" />
                                 </svg>
                                 Add Money
                             </button>
-                            <div class="mdoal">
-                                <div class="modal-layer">
-
+                            <div class="modal" id="add-money">
+                                <div class="modal-dialog add-money-modal">
+                                    <div class="modal-head-wrapper">
+                                        <div class="modal-head-title-wrapper">
+                                            <div class="modal-head-title">Add Money</div>
+                                            <button class="flex-shrink-0 modal-close-btn" type="button">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="modal-close-icon lucide lucide-x preview-icon">
+                                                    <path d="M18 6 6 18" />
+                                                    <path d="m6 6 12 12" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <p class="modal-head-description">Add funds to your investment account</p>
+                                    </div>
+                                    <form class="form-wrapper add-money-form">
+                                        <div class="input-stack">
+                                            <label class="input-label" for="add-moneys-amount">Amount</label>
+                                            <input class="input-field" type="number" id="add-moneys-amount" required>
+                                        </div>
+                                        <div class="input-stack">
+                                            <label class="input-label" for="add-moneys-payment-method">Payment Method</label>
+                                            <select class="input-field" name="payment-method" id="add-moneys-payment-method">
+                                                <option value="payment-method" selected>Payment Method</option>
+                                                <option value="bank-account">Bank Account</option>
+                                                <option value="upi">UPI</option>
+                                                <option value="debit-card">Debit Card</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-stack">
+                                            <label class="input-label" for="add-moneys-amount">Bank Account</label>
+                                            <select class="input-field" name="payment-method" id="add-moneys-payment-method">
+                                                <option value="payment-method" selected>Bank Account</option>
+                                                <option value="bank-account">HDFC Bank •••• 4582</option>
+                                                <option value="upi">ICICI Bank •••• 7214</option>
+                                                <option value="debit-card">SBI •••• 3098</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-stack">
+                                            <label class="input-label" for="add-moneys-amount">Amount</label>
+                                            <input class="input-field" type="number" id="add-moneys-amount" required>
+                                        </div>
+                                        <div class="modal-btn-wrapper">
+                                            <button class="modal-btn" type="button">Cancel</button>
+                                            <button class="modal-btn" type="submit">Add Money</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -521,6 +567,10 @@
             </main>
         </div>
     </div>
+
+    <!-- Nice select js -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/jquery.nice-select.js"></script>
 
     <!----- Chart Js ----->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
