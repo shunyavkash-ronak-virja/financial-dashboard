@@ -1,6 +1,6 @@
 :root {
   --black: #000000;
-  --black-0_16: #0000002b;
+  --black-0_38: #00000061;
   --primary: #0a2647;
   --poseidon: #163b63;
   --poseidon-100: #243b53;
@@ -177,7 +177,8 @@ button {
   cursor: pointer;
 }
 
-input {
+input,
+textarea {
   width: 100%;
   font-family: inherit;
   font-size: inherit;
@@ -261,6 +262,17 @@ input {
   transform: translateX(4px);
 }
 
+.vertical-scroll-bar::-webkit-scrollbar {
+  width: 12px;
+}
+
+.vertical-scroll-bar::-webkit-scrollbar-thumb {
+  border: 4px solid transparent;
+  background-color: var(--poseidon-200);
+  border-radius: 24px;
+  background-clip: padding-box;
+}
+
 .form-wrapper {
   display: flex;
   flex-direction: column;
@@ -298,4 +310,52 @@ inut[type="number"] {
   font-size: 14px;
   line-height: 1.5;
   color: var(--poseidon-200);
+}
+
+.modal-btn-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 10px;
+}
+
+.modal-btn {
+  padding: 4px 10px;
+  border-radius: 6px;
+  line-height: 1.6;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-cancel-btn {
+  color: var(--poseidon-200);
+}
+
+.modal-cancel-btn:hover {
+  color: var(--poseidon-100);
+}
+
+.modal-submit-btn {
+  background-color: var(--poseidon-200);
+  color: var(--white);
+}
+
+.modal-submit-btn:hover {
+  background-color: var(--poseidon-500);
+}
+
+.modal-textarea {
+  resize: none;
+  min-height: 90px;
+}
+
+select[required].nice-select-search ~ .nice-select,
+select[required] {
+  display: block !important;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  border: 0;
+  margin-top: 40px;
 }

@@ -47,7 +47,7 @@
 
 .nice-select .list {
   width: 100%;
-  max-height: 146px;
+  max-height: 143px;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -94,7 +94,7 @@
 }
 
 .nice-select:has(.option.selected.disabled) .current {
-  color: var(--black);
+  color: var(--poseidon-600);
 }
 
 .nice-select .list::-webkit-scrollbar {

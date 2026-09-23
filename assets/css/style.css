@@ -495,7 +495,8 @@ main::-webkit-scrollbar-thumb {
   background-color: var(--poseidon-400);
 }
 
-.table-content th {
+.table-content th,
+.modal-table th {
   font-weight: 600;
   text-transform: capitalize;
   text-align: left;
@@ -503,13 +504,15 @@ main::-webkit-scrollbar-thumb {
   padding: 8px 10px;
 }
 
-.table-content td {
+.table-content td,
+.modal-table td {
   padding: 8px 10px;
   border-bottom: 1px solid var(--poseidon-300);
   text-transform: capitalize;
 }
 
-.table-content tbody tr:last-child td {
+.table-content tbody tr:last-child td,
+.modal-table tbody tr:last-child td {
   border-bottom: none;
 }
 
@@ -688,7 +691,7 @@ main::-webkit-scrollbar-thumb {
   z-index: 999;
   display: flex;
   padding: 20px;
-  background-color: var(--black-0_16);
+  background-color: var(--black-0_38);
   overflow: auto;
   opacity: 0;
   visibility: hidden;
@@ -702,6 +705,7 @@ main::-webkit-scrollbar-thumb {
 
 .modal-dialog {
   width: 100%;
+  max-width: 400px;
   margin: auto;
   background-color: var(--white);
   border-radius: 18px;
@@ -741,14 +745,20 @@ main::-webkit-scrollbar-thumb {
   max-width: 400px;
 }
 
-.modal-btn-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  gap: 12px;
+.table-modal-btn {
+  transition: all 0.3s ease-in-out;
 }
 
-.modal-btn {
-  padding: 4px 8px;
-  border-radius: 6px;
+.table-modal-btn:hover {
+  color: var(--primary);
+}
+
+.modal-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 18px;
+}
+
+.modal-table td {
+  padding-inline: 4px;
 }

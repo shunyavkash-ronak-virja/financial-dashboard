@@ -232,14 +232,14 @@
                     <div class="content-title">Quick actions</div>
                     <div class="quick-actions-btn-wrapper">
                         <div class="quick-actions-btn-stack">
-                            <button class="quick-actions-btn" type="button" data-modal="add-money">
+                            <button class="quick-actions-btn" type="button" data-modal="quick-add-money">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="quick-actions-icon lucide lucide-plus">
                                     <path d="M5 12h14" />
                                     <path d="M12 5v14" />
                                 </svg>
                                 Add Money
                             </button>
-                            <div class="modal" id="add-money">
+                            <div class="vertical-scroll-bar modal" id="quick-add-money">
                                 <div class="modal-dialog add-money-modal">
                                     <div class="modal-head-wrapper">
                                         <div class="modal-head-title-wrapper">
@@ -255,62 +255,234 @@
                                     </div>
                                     <form class="form-wrapper add-money-form">
                                         <div class="input-stack">
-                                            <label class="input-label" for="add-moneys-amount">Amount</label>
-                                            <input class="input-field" type="number" id="add-moneys-amount" required>
+                                            <label class="input-label" for="add-money-amount">Amount</label>
+                                            <input class="input-field" type="number" id="add-money-amount" name="amount" placeholder="₹25,000" min="0" required>
                                         </div>
                                         <div class="input-stack">
-                                            <label class="input-label" for="add-moneys-payment-method">Payment Method</label>
-                                            <select class="input-field" name="payment-method" id="add-moneys-payment-method">
-                                                <option value="payment-method" selected>Payment Method</option>
+                                            <label class="input-label" for="add-money-payment-method">Payment Method</label>
+                                            <select class="input-field" name="payment-method" id="add-money-payment-method" required>
+                                                <option value="" selected disabled>Payment Method</option>
                                                 <option value="bank-account">Bank Account</option>
                                                 <option value="upi">UPI</option>
                                                 <option value="debit-card">Debit Card</option>
                                             </select>
                                         </div>
                                         <div class="input-stack">
-                                            <label class="input-label" for="add-moneys-amount">Bank Account</label>
-                                            <select class="input-field" name="payment-method" id="add-moneys-payment-method">
-                                                <option value="payment-method" selected>Bank Account</option>
+                                            <label class="input-label" for="add-money-bank-amount">Bank Account</label>
+                                            <select class="input-field" name="payment-method" id="add-money-bank-amount" required>
+                                                <option value="" selected disabled>Bank Account</option>
                                                 <option value="bank-account">HDFC Bank •••• 4582</option>
                                                 <option value="upi">ICICI Bank •••• 7214</option>
                                                 <option value="debit-card">SBI •••• 3098</option>
                                             </select>
                                         </div>
                                         <div class="input-stack">
-                                            <label class="input-label" for="add-moneys-amount">Amount</label>
-                                            <input class="input-field" type="number" id="add-moneys-amount" required>
+                                            <label class="input-label" for="add-money-note">Note</label>
+                                            <textarea class="vertical-scroll-bar input-field modal-textarea" name="add-moneys-note" id="add-money-note" placeholder="Enter note"></textarea>
                                         </div>
                                         <div class="modal-btn-wrapper">
-                                            <button class="modal-btn" type="button">Cancel</button>
-                                            <button class="modal-btn" type="submit">Add Money</button>
+                                            <button class="modal-btn modal-cancel-btn" type="reset">Cancel</button>
+                                            <button class="modal-btn modal-submit-btn" type="submit">Add Money</button>
                                         </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
-                        <button class="quick-actions-btn" type="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="quick-actions-icon lucide lucide-trending-up">
-                                <path d="M16 7h6v6" />
-                                <path d="m22 7-8.5 8.5-5-5L2 17" />
-                            </svg>
-                            Buy
-                        </button>
-                        <button class="quick-actions-btn" type="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="quick-actions-icon lucide lucide-trending-down">
-                                <path d="M16 17h6v-6" />
-                                <path d="m22 17-8.5-8.5-5 5L2 7" />
-                            </svg>
-                            Sell
-                        </button>
-                        <button class="quick-actions-btn" type="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="quick-actions-icon lucide lucide-arrow-right-left">
-                                <path d="m16 3 4 4-4 4" />
-                                <path d="M20 7H4" />
-                                <path d="m8 21-4-4 4-4" />
-                                <path d="M4 17h16" />
-                            </svg>
-                            Transfer
-                        </button>
+
+                        <div class="quick-actions-btn-stack">
+                            <button class="quick-actions-btn" type="button" data-modal="quick-buy">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="quick-actions-icon lucide lucide-trending-up">
+                                    <path d="M16 7h6v6" />
+                                    <path d="m22 7-8.5 8.5-5-5L2 17" />
+                                </svg>
+                                Buy
+                            </button>
+                            <div class="vertical-scroll-bar modal" id="quick-buy">
+                                <div class="modal-dialog quick-buy-modal">
+                                    <div class="modal-head-wrapper">
+                                        <div class="modal-head-title-wrapper">
+                                            <div class="modal-head-title">Buy Investment</div>
+                                            <button class="flex-shrink-0 modal-close-btn" type="button">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="modal-close-icon lucide lucide-x preview-icon">
+                                                    <path d="M18 6 6 18" />
+                                                    <path d="m6 6 12 12" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <p class="modal-head-description">Purchase an investment</p>
+                                    </div>
+                                    <form class="form-wrapper quick-buy">
+                                        <div class="input-stack">
+                                            <label class="input-label" for="buy-investment">Investment</label>
+                                            <select class="input-field" name="investment" id="buy-investment" required>
+                                                <option value="" selected disabled>Select investment</option>
+                                                <option value="apple">Apple</option>
+                                                <option value="tesla">Tesla</option>
+                                                <option value="nvidia">NVIDIA</option>
+                                                <option value="microsoft">Microsoft</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-stack">
+                                            <label class="input-label" for="buy-quantity">Quantity</label>
+                                            <input class="input-field" type="number" id="buy-quantity" name="quantity" placeholder="Enter quantity" min="1" required>
+                                        </div>
+                                        <div class="input-stack">
+                                            <label class="input-label" for="buy-order-type">Order Type</label>
+                                            <select class="input-field" id="buy-order-type" name="order-type" required>
+                                                <option value="" selected disabled>Select order type</option>
+                                                <option value="market">Market</option>
+                                                <option value="limit">Limit</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-stack">
+                                            <label class="input-label" for="buy-price">Price per Unit</label>
+                                            <input class="input-field" type="number" id="buy-price" name="price" placeholder="Enter price" min="0" required>
+                                        </div>
+                                        <div class="input-stack">
+                                            <label class="input-label" for="buy-payment-method">Payment Method</label>
+                                            <select class="input-field" id="buy-payment-method" name="order-type" required>
+                                                <option value="" selected disabled>Select payment method</option>
+                                                <option value="bank-account">Bank Account</option>
+                                                <option value="cash-balance">Cash Balance</option>
+                                            </select>
+                                        </div>
+                                        <div class="modal-btn-wrapper">
+                                            <button class="modal-btn modal-cancel-btn" type="reset">Cancel</button>
+                                            <button class="modal-btn modal-submit-btn" type="submit">Buy Now
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quick-actions-btn-stack">
+                            <button class="quick-actions-btn" type="button" data-modal="quick-sell">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="quick-actions-icon lucide lucide-trending-down">
+                                    <path d="M16 17h6v-6" />
+                                    <path d="m22 17-8.5-8.5-5 5L2 7" />
+                                </svg>
+                                Sell
+                            </button>
+                            <div class="vertical-scroll-bar modal" id="quick-sell">
+                                <div class="modal-dialog quick-sell-modal">
+                                    <div class="modal-head-wrapper">
+                                        <div class="modal-head-title-wrapper">
+                                            <div class="modal-head-title">Sell Investment</div>
+                                            <button class="flex-shrink-0 modal-close-btn" type="button">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="modal-close-icon lucide lucide-x preview-icon">
+                                                    <path d="M18 6 6 18" />
+                                                    <path d="m6 6 12 12" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <p class="modal-head-description">Sell an investment from your portfolio</p>
+                                    </div>
+                                    <form class="form-wrapper add-money-form">
+                                        <div class="input-stack">
+                                            <label class="input-label" for="sell-investment">Investment</label>
+                                            <select class="input-field" name="sell-investment" id="sell-investment" required>
+                                                <option value="" selected disabled>Select investment</option>
+                                                <option value="apple">Apple</option>
+                                                <option value="tesla">Tesla</option>
+                                                <option value="nvidia">NVIDIA</option>
+                                                <option value="microsoft">Microsoft</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-stack">
+                                            <span class="input-label">Available Quantity</span>
+                                            <div class="input-field">10 shares</div>
+                                        </div>
+                                        <div class="input-stack">
+                                            <label class="input-label" for="sell-quantity">Quantity to Sell</label>
+                                            <input class="input-field" type="number" id="sell-quantity" name="sell-quantity" placeholder="Enter quantity" min="1" required>
+                                        </div>
+                                        <div class="input-stack">
+                                            <label class="input-label" for="sell-order-type">Order Type</label>
+                                            <select class="input-field" name="sell-order-type" id="sell-order-type" required>
+                                                <option value="" selected disabled>Order Type</option>
+                                                <option value="market">Market</option>
+                                                <option value="limit">Limit</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-stack">
+                                            <label class="input-label" for="sell-price">Price per Unit</label>
+                                            <input class="input-field" type="number" id="sell-price" name="price" placeholder="Enter price" min="0" required>
+                                        </div>
+                                        <div class="modal-btn-wrapper">
+                                            <button class="modal-btn modal-cancel-btn" type="reset">Cancel</button>
+                                            <button class="modal-btn modal-submit-btn" type="submit">Sell Now</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quick-actions-btn-stack">
+                            <button class="quick-actions-btn" type="button" data-modal="quick-transfer">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="quick-actions-icon lucide lucide-arrow-right-left">
+                                    <path d="m16 3 4 4-4 4" />
+                                    <path d="M20 7H4" />
+                                    <path d="m8 21-4-4 4-4" />
+                                    <path d="M4 17h16" />
+                                </svg>
+                                Transfer
+                            </button>
+                            <div class="vertical-scroll-bar modal" id="quick-transfer">
+                                <div class="modal-dialog quick-transfer-modal">
+                                    <div class="modal-head-wrapper">
+                                        <div class="modal-head-title-wrapper">
+                                            <div class="modal-head-title">Transfer Money</div>
+                                            <button class="flex-shrink-0 modal-close-btn" type="button">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="modal-close-icon lucide lucide-x preview-icon">
+                                                    <path d="M18 6 6 18" />
+                                                    <path d="m6 6 12 12" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <p class="modal-head-description">Transfer money between accounts</p>
+                                    </div>
+                                    <form class="form-wrapper add-money-form">
+                                        <div class="input-stack">
+                                            <label class="input-label" for="transfer-from">From</label>
+                                            <select class="input-field" id="transfer-from" name="from-account" required>
+                                                <option value="" selected disabled>Select account</option>
+                                                <option value="main-bank">Main Bank Account</option>
+                                                <option value="investment-account">Investment Account</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-stack">
+                                            <label class="input-label" for="transfer-to">To</label>
+                                            <select class="input-field" name="to-account" id="transfer-to" required>
+                                                <option value="" selected disabled>Select account</option>
+                                                <option value="investment-account">Investment Account</option>
+                                                <option value="main-bank">Main Bank Account</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-stack">
+                                            <label class="input-label" for="transfer-amount">Amount</label>
+                                            <input class="input-field" type="number" id="transfer-amount" name="amount" placeholder="Enter amount" min="0" required>
+                                        </div>
+                                        <div class="input-stack">
+                                            <label class="input-label" for="transfer-note">Note</label>
+                                            <textarea class="vertical-scroll-bar input-field modal-textarea" name="add-moneys-note" id="transfer-note" placeholder="Enter note"></textarea>
+                                        </div>
+                                        <div class="input-stack">
+                                            <span class="input-label">Transfer Fee</span>
+                                            <div class="input-field">₹0.00</div>
+                                        </div>
+                                        <div class="input-stack">
+                                            <span class="input-label">Total</span>
+                                            <div class="input-field">₹25,000</div>
+                                        </div>
+                                        <div class="modal-btn-wrapper">
+                                            <button class="modal-btn modal-cancel-btn" type="reset">Cancel</button>
+                                            <button class="modal-btn modal-submit-btn" type="submit">Transfer</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

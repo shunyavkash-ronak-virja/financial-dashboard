@@ -246,148 +246,148 @@ if (investmentDetailChartInstance) {
 // ================================
 // AUTHENTICATION FUNCTIONALITY
 // ================================
-const signUpForm = document.querySelector(".sign-up-form");
-if (signUpForm) {
-  signUpForm.addEventListener("submit", function (event) {
-    event.preventDefault();
+// const signUpForm = document.querySelector(".sign-up-form");
+// if (signUpForm) {
+//   signUpForm.addEventListener("submit", function (event) {
+//     event.preventDefault();
 
-    const name = document.querySelector("#sign-up-name").value.trim();
-    const email = document.querySelector("#sign-up-email").value.trim();
-    const password = document.querySelector("#sign-up-Password").value;
-    const confirmPassword = document.querySelector("#sign-up-confirm-password").value;
+//     const name = document.querySelector("#sign-up-name").value.trim();
+//     const email = document.querySelector("#sign-up-email").value.trim();
+//     const password = document.querySelector("#sign-up-Password").value;
+//     const confirmPassword = document.querySelector("#sign-up-confirm-password").value;
 
-    if (name === "") {
-      showError("#sign-up-name", "Please enter your full name.");
-      return;
-    }
-    if (email === "") {
-      showError("#sign-up-email", "Please enter your email address.");
-      return;
-    }
-    if (password === "") {
-      showError("#sign-up-Password", "Please enter a password.");
-      return;
-    }
-    if (password.length < 8) {
-      showError("#sign-up-Password", "Password must be at least 8 characters.");
-      return;
-    }
-    if (confirmPassword === "") {
-      showError("#sign-up-confirm-password", "Please confirm your password.");
-      return;
-    }
-    if (password !== confirmPassword) {
-      showError("#sign-up-confirm-password", "Passwords do not match.");
-      return;
-    }
-    const user = {
-      name: name,
-      email: email,
-      password: password
-    };
+//     if (name === "") {
+//       showError("#sign-up-name", "Please enter your full name.");
+//       return;
+//     }
+//     if (email === "") {
+//       showError("#sign-up-email", "Please enter your email address.");
+//       return;
+//     }
+//     if (password === "") {
+//       showError("#sign-up-Password", "Please enter a password.");
+//       return;
+//     }
+//     if (password.length < 8) {
+//       showError("#sign-up-Password", "Password must be at least 8 characters.");
+//       return;
+//     }
+//     if (confirmPassword === "") {
+//       showError("#sign-up-confirm-password", "Please confirm your password.");
+//       return;
+//     }
+//     if (password !== confirmPassword) {
+//       showError("#sign-up-confirm-password", "Passwords do not match.");
+//       return;
+//     }
+//     const user = {
+//       name: name,
+//       email: email,
+//       password: password
+//     };
 
-    sessionStorage.setItem("financialUser", JSON.stringify(user));
-    window.location.href = "sign-in.html";
-  });
-}
+//     sessionStorage.setItem("financialUser", JSON.stringify(user));
+//     window.location.href = "sign-in.html";
+//   });
+// }
 
-const signInForm = document.querySelector(".sign-in-form");
-if (signInForm) {
-  signInForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-    const email = document.querySelector("#sign-in-email").value.trim();
-    const password = document.querySelector("#sign-in-Password").value;
-    const storedUser = sessionStorage.getItem("financialUser");
+// const signInForm = document.querySelector(".sign-in-form");
+// if (signInForm) {
+//   signInForm.addEventListener("submit", function (event) {
+//     event.preventDefault();
+//     const email = document.querySelector("#sign-in-email").value.trim();
+//     const password = document.querySelector("#sign-in-Password").value;
+//     const storedUser = sessionStorage.getItem("financialUser");
 
-    if (!storedUser) {
-      showError("#sign-in-email", "No account found. Please create an account first.");
-      return;
-    }
+//     if (!storedUser) {
+//       showError("#sign-in-email", "No account found. Please create an account first.");
+//       return;
+//     }
 
-    const user = JSON.parse(storedUser);
-    if (email === "") {
-      showError("#sign-in-email", "Please enter your email address.");
-      return;
-    }
-    if (password === "") {
-      showError("#sign-in-Password", "Please enter your password.");
-      return;
-    }
-    if (email !== user.email || password !== user.password) {
-      showError("#sign-in-Password", "Email or password is incorrect.");
-      return;
-    }
+//     const user = JSON.parse(storedUser);
+//     if (email === "") {
+//       showError("#sign-in-email", "Please enter your email address.");
+//       return;
+//     }
+//     if (password === "") {
+//       showError("#sign-in-Password", "Please enter your password.");
+//       return;
+//     }
+//     if (email !== user.email || password !== user.password) {
+//       showError("#sign-in-Password", "Email or password is incorrect.");
+//       return;
+//     }
 
-    sessionStorage.setItem("isLoggedIn", "true");
-    window.location.href = "index.html";
-  });
-}
+//     sessionStorage.setItem("isLoggedIn", "true");
+//     window.location.href = "index.html";
+//   });
+// }
 
-const logoutButtons = document.querySelectorAll(".log-out-btn");
-logoutButtons.forEach(function (button) {
-  button.addEventListener("click", function () {
-    sessionStorage.removeItem("isLoggedIn");
-    window.location.href = "sign-in.html";
-  });
-});
+// const logoutButtons = document.querySelectorAll(".log-out-btn");
+// logoutButtons.forEach(function (button) {
+//   button.addEventListener("click", function () {
+//     sessionStorage.removeItem("isLoggedIn");
+//     window.location.href = "sign-in.html";
+//   });
+// });
 
-const isSignUpPage = document.querySelector(".sign-up-form");
-const isSignInPage = document.querySelector(".sign-in-form");
-const isLoggedIn = sessionStorage.getItem("isLoggedIn");
+// const isSignUpPage = document.querySelector(".sign-up-form");
+// const isSignInPage = document.querySelector(".sign-in-form");
+// const isLoggedIn = sessionStorage.getItem("isLoggedIn");
 
-if (!isSignUpPage && !isSignInPage) {
-  if (isLoggedIn !== "true") {
-    window.location.href = "sign-in.html";
-  }
-}
+// if (!isSignUpPage && !isSignInPage) {
+//   if (isLoggedIn !== "true") {
+//     window.location.href = "sign-in.html";
+//   }
+// }
 
-function showError(inputSelector, message) {
-  const input = document.querySelector(inputSelector);
-  const inputStack = input.closest(".input-stack");
-  const oldError = inputStack.querySelector(".input-error");
+// function showError(inputSelector, message) {
+//   const input = document.querySelector(inputSelector);
+//   const inputStack = input.closest(".input-stack");
+//   const oldError = inputStack.querySelector(".input-error");
 
-  if (oldError) {
-    oldError.remove();
-  }
+//   if (oldError) {
+//     oldError.remove();
+//   }
 
-  const error = document.createElement("p");
-  error.className = "input-error";
-  error.textContent = message;
-  inputStack.appendChild(error);
-}
+//   const error = document.createElement("p");
+//   error.className = "input-error";
+//   error.textContent = message;
+//   inputStack.appendChild(error);
+// }
 
-const passwordToggles = document.querySelectorAll("[data-password-toggle]");
-passwordToggles.forEach(function (toggle) {
-  const passwordInput = toggle.parentElement.querySelector("input");
-  const eyeOpenIcon = toggle.querySelector(".eye-open-icon");
-  const eyeCloseIcon = toggle.querySelector(".eye-close-icon");
+// const passwordToggles = document.querySelectorAll("[data-password-toggle]");
+// passwordToggles.forEach(function (toggle) {
+//   const passwordInput = toggle.parentElement.querySelector("input");
+//   const eyeOpenIcon = toggle.querySelector(".eye-open-icon");
+//   const eyeCloseIcon = toggle.querySelector(".eye-close-icon");
 
-  passwordInput.addEventListener("input", function () {
-    if (passwordInput.value === "") {
-      toggle.classList.add("disabled");
-      eyeCloseIcon.classList.add("icon-visibility");
-      eyeOpenIcon.classList.remove("icon-visibility");
-      passwordInput.type = "password";
-    } else {
-      toggle.classList.remove("disabled");
-    }
-  });
+//   passwordInput.addEventListener("input", function () {
+//     if (passwordInput.value === "") {
+//       toggle.classList.add("disabled");
+//       eyeCloseIcon.classList.add("icon-visibility");
+//       eyeOpenIcon.classList.remove("icon-visibility");
+//       passwordInput.type = "password";
+//     } else {
+//       toggle.classList.remove("disabled");
+//     }
+//   });
 
-  toggle.addEventListener("click", function () {
-    if (passwordInput.value === "") {
-      return;
-    }
-    if (passwordInput.type === "password") {
-      passwordInput.type = "text";
-      eyeCloseIcon.classList.remove("icon-visibility");
-      eyeOpenIcon.classList.add("icon-visibility");
-    } else {
-      passwordInput.type = "password";
-      eyeOpenIcon.classList.remove("icon-visibility");
-      eyeCloseIcon.classList.add("icon-visibility");
-    }
-  });
-});
+//   toggle.addEventListener("click", function () {
+//     if (passwordInput.value === "") {
+//       return;
+//     }
+//     if (passwordInput.type === "password") {
+//       passwordInput.type = "text";
+//       eyeCloseIcon.classList.remove("icon-visibility");
+//       eyeOpenIcon.classList.add("icon-visibility");
+//     } else {
+//       passwordInput.type = "password";
+//       eyeOpenIcon.classList.remove("icon-visibility");
+//       eyeCloseIcon.classList.add("icon-visibility");
+//     }
+//   });
+// });
 
 // ================================
 // GLOBAL MODAL JS

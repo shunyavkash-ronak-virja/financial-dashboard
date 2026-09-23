@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
 
+    <!----- Nice select css ----->
+    <link rel="stylesheet" href="assets/css/nice-select.css">
+
     <!----- Google Font ----->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -224,6 +227,53 @@
                     </div>
                 </div>
             </header>
+            <div class="vertical-scroll-bar modal" id="portfolio-details-modal">
+                <div class="modal-dialog portfolio-details-modal">
+                    <div class="modal-head-wrapper">
+                        <div class="modal-head-title-wrapper">
+                            <div class="modal-head-title">Portfolio Details</div>
+                            <button class="flex-shrink-0 modal-close-btn" type="button">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="modal-close-icon lucide lucide-x preview-icon">
+                                    <path d="M18 6 6 18" />
+                                    <path d="m6 6 12 12" />
+                                </svg>
+                            </button>
+                        </div>
+                        <table class="modal-table">
+                            <tbody>
+                                <tr>
+                                    <td>Asset Type</td>
+                                    <td>Stocks</td>
+                                </tr>
+                                <tr>
+                                    <td>Invested</td>
+                                    <td>₹4,00,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Current Value</td>
+                                    <td>₹5,00,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Total Return</td>
+                                    <td>+₹1,00,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Return %</td>
+                                    <td>+25%</td>
+                                </tr>
+                                <tr>
+                                    <td>Allocation</td>
+                                    <td>50%</td>
+                                </tr>
+                                <tr>
+                                    <td>Status</td>
+                                    <td>Active</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
             <main>
                 <div class="outline portfolio-wrapper">
                     <div class="content-title">My Investment Portfolio</div>
@@ -269,25 +319,25 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Stocks</td>
+                                    <td><button class="table-modal-btn" data-modal="portfolio-details-modal">Stocks</button></td>
                                     <td>₹4,00,000</td>
                                     <td>₹5,00,000</td>
                                     <td>+25%</td>
                                 </tr>
                                 <tr>
-                                    <td>Mutual Funds</td>
+                                    <td><button class="table-modal-btn" data-modal="portfolio-details-modal">Mutual Funds</button></td>
                                     <td>₹2,00,000</td>
                                     <td>₹2,30,000</td>
                                     <td>+15%</td>
                                 </tr>
                                 <tr>
-                                    <td>Gold</td>
+                                    <td> <button class="table-modal-btn" data-modal="portfolio-details-modal">Gold</button></td>
                                     <td>₹1,50,000</td>
                                     <td>₹1,70,000</td>
                                     <td>+13.3%</td>
                                 </tr>
                                 <tr>
-                                    <td>Cash</td>
+                                    <td><button class="table-modal-btn" data-modal="portfolio-details-modal">Cash</button></td>
                                     <td>₹1,00,000</td>
                                     <td>₹1,00,000</td>
                                     <td>0%</td>
@@ -299,6 +349,10 @@
             </main>
         </div>
     </div>
+
+    <!-- Nice select js -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/jquery.nice-select.js"></script>
 
     <!----- Chart Js ----->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
