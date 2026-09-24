@@ -350,6 +350,10 @@ input::-webkit-inner-spin-button {
   min-height: 90px;
 }
 
+.modal-textarea::placeholder {
+  font-size: 16px;
+}
+
 select[required].nice-select-search ~ .nice-select,
 select[required] {
   display: block !important;
