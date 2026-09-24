@@ -395,7 +395,7 @@ passwordToggles.forEach(function (toggle) {
 const modal = document.querySelectorAll(".modal");
 if (modal) {
   const modalBtns = document.querySelectorAll("[data-modal]");
-  const modalCloseBtns = document.querySelectorAll(".modal-close-btn");
+  const modalCloseBtns = document.querySelectorAll(".modal-close");
   const modal = document.querySelectorAll(".modal");
 
   modalBtns.forEach((button) => {

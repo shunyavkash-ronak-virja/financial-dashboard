@@ -3,7 +3,6 @@
   -webkit-tap-highlight-color: #fff0;
   box-sizing: border-box;
   clear: both;
-  cursor: pointer;
   padding: 8px 12px;
   color: var(--poseidon-600);
   display: block;
@@ -63,7 +62,7 @@
   background-color: var(--white-100);
   border-radius: 8px;
   box-shadow: 0 0 0 1px rgb(68 68 68 / 0.11);
-  transform: translateY(-15px);
+  transform: scale(0);
   transition: all 0.3s ease-in-out;
   z-index: 9;
 }
@@ -71,7 +70,7 @@
 .nice-select.open .list {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+  transform: scale(1);
   pointer-events: auto;
 }
 
@@ -90,6 +89,7 @@
 }
 
 .nice-select .option.disabled {
+  pointer-events: none;
   cursor: default;
 }
 
