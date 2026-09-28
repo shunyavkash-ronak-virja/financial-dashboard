@@ -766,3 +766,11 @@ main::-webkit-scrollbar-thumb {
 .modal-table td {
   padding-inline: 4px;
 }
+
+.payment-method-option {
+  display: none;
+}
+
+.payment-method-option.active {
+  display: flex;
+}

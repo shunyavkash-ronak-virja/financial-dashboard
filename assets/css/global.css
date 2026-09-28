@@ -192,6 +192,10 @@ textarea {
   background-color: var(--transparent);
 }
 
+input::placeholder {
+  text-transform: capitalize;
+}
+
 .flex-shrink-0 {
   flex-shrink: 0;
 }
@@ -283,7 +287,8 @@ textarea {
   background-clip: padding-box;
 }
 
-.form-wrapper {
+.form-wrapper,
+.form-details-wrapper {
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -373,5 +378,4 @@ select[required] {
   width: 1px;
   padding: 0;
   border: 0;
-  margin-top: 40px;
 }

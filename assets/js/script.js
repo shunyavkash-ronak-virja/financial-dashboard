@@ -55,7 +55,7 @@ if (header) {
 const investmentChart = document.getElementById("investmentChart");
 let investmentChartInstance = null;
 if (investmentChart) {
-  const investmentChartInstance = new Chart(investmentChart, {
+  investmentChartInstance = new Chart(investmentChart, {
     type: "line",
     data: {
       labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jan", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
@@ -90,7 +90,7 @@ if (investmentChart) {
 const assetAllocationChart = document.getElementById("assetAllocationChart");
 let assetAllocationChartInstance = null;
 if (assetAllocationChart) {
-  const assetAllocationChartInstance = new Chart(assetAllocationChart, {
+  assetAllocationChartInstance = new Chart(assetAllocationChart, {
     type: "pie",
     data: {
       labels: ["Stocks", "Gold", "Cash"],
@@ -113,7 +113,7 @@ if (assetAllocationChart) {
 const portfolioValue = document.getElementById("portfolioValue");
 let portfolioValueInstance = null;
 if (portfolioValue) {
-  const portfolioValueInstance = new Chart(portfolioValue, {
+  portfolioValueInstance = new Chart(portfolioValue, {
     type: "line",
     data: {
       labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jan", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
@@ -136,7 +136,7 @@ if (portfolioValue) {
 const portfolioAssetAllocation = document.getElementById("portfolioAssetAllocation");
 let portfolioAssetAllocationInstance = null;
 if (portfolioAssetAllocation) {
-  const portfolioAssetAllocationInstance = new Chart(portfolioAssetAllocation, {
+  portfolioAssetAllocationInstance = new Chart(portfolioAssetAllocation, {
     type: "doughnut",
     data: {
       labels: ["Stocks", "Mutual Funds", "Gold", "Cash"],
@@ -442,3 +442,36 @@ if (modal) {
 $(document).ready(function () {
   $("select").niceSelect();
 });
+
+// ================================
+// ADD MONEY PAYMENT METHOD
+// ================================
+// const addMoneyPaymentMethod = document.querySelector(
+//   "#add-money-payment-method"
+// );
+// const paymentMethodOptions = document.querySelectorAll(
+//   ".payment-method-option"
+// );
+// addMoneyPaymentMethod.addEventListener("change", function () {
+//   const selectedMethod = this.value;
+//   // Hide all payment method details
+//   paymentMethodOptions.forEach(function (option) {
+//     option.classList.remove("active");
+//     const fields = option.querySelectorAll("input, select");
+//     fields.forEach(function (field) {
+//       field.required = false;
+//     });
+//   });
+//   // Find selected payment method details
+//   const selectedOption = document.querySelector(
+//     `.payment-method-option[data-payment-method="${selectedMethod}"]`
+//   );
+//   // Show selected payment method details
+//   if (selectedOption) {
+//     selectedOption.classList.add("active");
+//     const fields = selectedOption.querySelectorAll("input, select");
+//     fields.forEach(function (field) {
+//       field.required = true;
+//     });
+//   }
+// });

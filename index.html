@@ -258,6 +258,7 @@
                                             <label class="input-label" for="add-money-amount">Amount</label>
                                             <input class="input-field" type="number" id="add-money-amount" name="amount" placeholder="₹25,000" min="0" required>
                                         </div>
+
                                         <div class="input-stack">
                                             <label class="input-label" for="add-money-payment-method">Payment Method</label>
                                             <select class="input-field" name="payment-method" id="add-money-payment-method" required>
@@ -267,15 +268,79 @@
                                                 <option value="debit-card">Debit Card</option>
                                             </select>
                                         </div>
-                                        <div class="input-stack">
-                                            <label class="input-label" for="add-money-bank-amount">Bank Account</label>
-                                            <select class="input-field" name="payment-method" id="add-money-bank-amount" required>
-                                                <option value="" selected disabled>Bank Account</option>
-                                                <option value="bank-account">HDFC Bank •••• 4582</option>
-                                                <option value="upi">ICICI Bank •••• 7214</option>
-                                                <option value="debit-card">SBI •••• 3098</option>
+
+                                        <div class="form-details-wrapper payment-method-option" data-payment-method="bank-account">
+                                            <div class="input-stack">
+                                                <label for="bank-name">Bank Name</label>
+                                                <input class="input-field" type="text" id="bank-name" name="bank-name" placeholder="Enter bank name">
+                                            </div>
+
+                                            <div class="input-stack">
+                                                <label for="account-holder-name">Account Holder Name</label>
+                                                <input class="input-field" type="text" id="account-holder-name" name="account-holder-name" placeholder="Enter account holder name">
+                                            </div>
+
+                                            <div class="input-stack">
+                                                <label for="account-number">Account Number</label>
+                                                <input class="input-field" type="text" id="account-number" name="account-number" placeholder="Enter account number" inputmode="numeric">
+                                            </div>
+
+                                            <div class="input-stack">
+                                                <label for="confirm-account-number">Confirm Account Number</label>
+                                                <input class="input-field" type="text" id="confirm-account-number" name="confirm-account-number" placeholder="Re-enter account number" inputmode="numeric">
+                                            </div>
+
+                                            <div class="input-stack">
+                                                <label for="ifsc-code">IFSC Code</label>
+                                                <input class="input-field" type="text" id="ifsc-code" name="ifsc-code" placeholder="Enter IFSC code">
+                                            </div>
+
+                                            <div class="input-stack">
+                                                <label for="account-type">Account Type</label>
+                                                <select class="input-field" id="account-type" name="account-type">
+                                                    <option value="" selected disabled>Select account type</option>
+                                                    <option value="savings">Savings Account</option>
+                                                    <option value="current">Current Account</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="input-stack payment-method-option" data-payment-method="upi">
+                                            <label class="input-label" for="add-money-upi">UPI</label>
+                                            <select class="input-field" name="upi" id="add-money-upi" required>
+                                                <option value="" selected disabled>Select UPI ID</option>
+                                                <option value="mason@okhdfcbank" data-upi-id="mason@okhdfcbank">mason@okhdfcbank</option>
+                                                <option value="mason@okicicibank" data-upi-id="mason@okicicibank">mason@okicicibank</option>
+                                                <option value="mason@oksbibank" data-upi-id="mason@oksbibank">mason@oksbibank</option>
                                             </select>
                                         </div>
+
+                                        <div class="form-details-wrapper payment-method-option" data-payment-method="debit-card">
+                                            <div class="input-stack">
+                                                <label class="input-label" for="add-money-card-number">Card Number</label>
+                                                <input class="input-field" type="number" id="add-money-card-number" name="card-number" placeholder="Enter Card Number" required>
+                                            </div>
+
+                                            <div class="input-stack">
+                                                <label class="input-label" for="add-money-card-name">Card Holder Name</label>
+                                                <input class="input-field" type="text" id="add-money-card-name" name="card-name" placeholder="Enter card holder name" required>
+                                            </div>
+
+                                            <div class="input-stack">
+                                                <label class="input-label" for="add-money-card-expiry">
+                                                    Expiry Date
+                                                </label>
+                                                <input class="input-field" type="date" id="add-money-card-expiry" name="card-expiry" required>
+                                            </div>
+                                            <div class="input-stack">
+                                                <label class="input-label" for="add-money-card-cvv">
+                                                    CVV
+                                                </label>
+                                                <input class="input-field" type="password" id="add-money-card-cvv" name="card-cvv" placeholder="Enter CVV" required>
+                                            </div>
+                                        </div>
+
+
                                         <div class="input-stack">
                                             <label class="input-label" for="add-money-note">Note</label>
                                             <textarea class="vertical-scroll-bar input-field modal-textarea" name="add-moneys-note" id="add-money-note" placeholder="Enter Note"></textarea>
