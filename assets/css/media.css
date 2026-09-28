@@ -109,10 +109,6 @@
     font-size: 18px;
   }
 
-  .quick-actions-wrapper {
-    padding-inline: 18px;
-  }
-
   .quick-actions-btn {
     font-size: 14px;
   }
@@ -140,6 +136,10 @@
 @media (max-width: 575px) {
   .modal-dialog {
     max-width: 100%;
+  }
+
+  .summary-value {
+    font-size: 16px;
   }
 }
 

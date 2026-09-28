@@ -535,14 +535,20 @@ main::-webkit-scrollbar-thumb {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 18px;
+  gap: 12px 20px;
   flex-wrap: wrap;
   border-radius: 10px;
   color: var(--green);
   border: 1px solid var(--green-100);
   background-color: var(--white-500);
-  padding: 12px 18px;
+  padding: 16px;
   margin-bottom: 18px;
+}
+
+.market-status-highlight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .market-status-highlight-wrapper {
@@ -553,15 +559,13 @@ main::-webkit-scrollbar-thumb {
 }
 
 .market-status-highlight-icon {
-  width: 24px;
+  width: 20px;
 }
 
 .market-status-highlight-caption {
-  display: block;
   text-transform: uppercase;
   font-size: 14px;
-  margin-top: 6px;
-  margin-left: 30px;
+  line-height: 1.1;
 }
 
 .market-table .market-stock {

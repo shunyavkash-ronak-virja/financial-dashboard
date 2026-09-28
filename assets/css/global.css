@@ -38,6 +38,12 @@ body {
   background-color: var(--white-100);
 }
 
+@media (max-width: 575px) {
+  body {
+    font-size: 14px;
+  }
+}
+
 .body-hidden {
   overflow: hidden;
 }
@@ -181,7 +187,7 @@ input,
 textarea {
   width: 100%;
   font-family: inherit;
-  font-size: inherit;
+  font-size: 16px;
   font-weight: inherit;
   background-color: var(--transparent);
 }
@@ -242,6 +248,10 @@ textarea {
   .content-title,
   .stack-head-wrapper {
     margin-bottom: 14px;
+  }
+
+  .content-title {
+    font-size: 18px;
   }
 }
 
