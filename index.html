@@ -253,7 +253,7 @@
                                         </div>
                                         <p class="modal-head-description">Add funds to your investment account</p>
                                     </div>
-                                    <form class="form-wrapper add-money-form">
+                                    <form class="form-wrapper ">
                                         <div class="input-stack">
                                             <label class="input-label" for="add-money-amount">Amount</label>
                                             <input class="input-field" type="number" id="add-money-amount" name="amount" placeholder="₹25,000" min="0" required>
@@ -269,7 +269,7 @@
                                             </select>
                                         </div>
 
-                                        <div class="form-details-wrapper payment-method-option" data-payment-method="bank-account">
+                                        <div class="form-details-wrapper payment-method-option" data-payment-method="bank-account" data-payment-context="add-money">
                                             <div class="input-stack">
                                                 <label for="bank-name">Bank Name</label>
                                                 <input class="input-field" type="text" id="bank-name" name="bank-name" placeholder="Enter bank name">
@@ -282,12 +282,12 @@
 
                                             <div class="input-stack">
                                                 <label for="account-number">Account Number</label>
-                                                <input class="input-field" type="text" id="account-number" name="account-number" placeholder="Enter account number" inputmode="numeric">
+                                                <input class="input-field" type="number" id="account-number" name="account-number" placeholder="Enter account number" inputmode="numeric">
                                             </div>
 
                                             <div class="input-stack">
                                                 <label for="confirm-account-number">Confirm Account Number</label>
-                                                <input class="input-field" type="text" id="confirm-account-number" name="confirm-account-number" placeholder="Re-enter account number" inputmode="numeric">
+                                                <input class="input-field" type="number" id="confirm-account-number" name="confirm-account-number" placeholder="Re-enter account number" inputmode="numeric">
                                             </div>
 
                                             <div class="input-stack">
@@ -305,38 +305,33 @@
                                             </div>
                                         </div>
 
-                                        <div class="input-stack payment-method-option" data-payment-method="upi">
+                                        <div class="input-stack payment-method-option" data-payment-method="upi" data-payment-context="add-money">
                                             <label class="input-label" for="add-money-upi">UPI</label>
-                                            <select class="input-field" name="upi" id="add-money-upi" required>
-                                                <option value="" selected disabled>Select UPI ID</option>
-                                                <option value="mason@okhdfcbank" data-upi-id="mason@okhdfcbank">mason@okhdfcbank</option>
-                                                <option value="mason@okicicibank" data-upi-id="mason@okicicibank">mason@okicicibank</option>
-                                                <option value="mason@oksbibank" data-upi-id="mason@oksbibank">mason@oksbibank</option>
-                                            </select>
+                                            <input class="input-field" type="text" id="add-money-upi" name="upi" placeholder="Enter UPI ID">
                                         </div>
 
-                                        <div class="form-details-wrapper payment-method-option" data-payment-method="debit-card">
+                                        <div class="form-details-wrapper payment-method-option" data-payment-method="debit-card" data-payment-context="add-money">
                                             <div class="input-stack">
-                                                <label class="input-label" for="add-money-card-number">Card Number</label>
-                                                <input class="input-field" type="number" id="add-money-card-number" name="card-number" placeholder="Enter Card Number" required>
+                                                <label class="input-label" for="add-money-card-name">Card Holder Name</label>
+                                                <input class="input-field" type="text" id="add-money-card-name" name="card-name" placeholder="Enter card holder name">
                                             </div>
 
                                             <div class="input-stack">
-                                                <label class="input-label" for="add-money-card-name">Card Holder Name</label>
-                                                <input class="input-field" type="text" id="add-money-card-name" name="card-name" placeholder="Enter card holder name" required>
+                                                <label class="input-label" for="add-money-card-number">Card Number</label>
+                                                <input class="input-field" type="number" id="add-money-card-number" name="card-number" placeholder="Enter Card Number">
                                             </div>
 
                                             <div class="input-stack">
                                                 <label class="input-label" for="add-money-card-expiry">
                                                     Expiry Date
                                                 </label>
-                                                <input class="input-field" type="date" id="add-money-card-expiry" name="card-expiry" required>
+                                                <input class="input-field" type="date" id="add-money-card-expiry" name="card-expiry">
                                             </div>
                                             <div class="input-stack">
                                                 <label class="input-label" for="add-money-card-cvv">
                                                     CVV
                                                 </label>
-                                                <input class="input-field" type="password" id="add-money-card-cvv" name="card-cvv" placeholder="Enter CVV" required>
+                                                <input class="input-field" type="password" id="add-money-card-cvv" name="card-cvv" placeholder="Enter CVV">
                                             </div>
                                         </div>
 
@@ -405,12 +400,57 @@
                                         </div>
                                         <div class="input-stack">
                                             <label class="input-label" for="buy-payment-method">Payment Method</label>
-                                            <select class="input-field" id="buy-payment-method" name="order-type" required>
+                                            <select class="input-field" id="buy-payment-method" name="buy-payment-method" required>
                                                 <option value="" selected disabled>Select payment method</option>
                                                 <option value="bank-account">Bank Account</option>
                                                 <option value="cash-balance">Cash Balance</option>
                                             </select>
                                         </div>
+
+                                        <div class="form-details-wrapper payment-method-option" data-payment-method="bank-account" data-payment-context="buy">
+                                            <div class="input-stack">
+                                                <label for="buy-bank-name">Bank Name</label>
+                                                <input class="input-field" type="text" id="buy-bank-name" name="buy-bank-name" placeholder="Enter bank name">
+                                            </div>
+
+                                            <div class="input-stack">
+                                                <label for="buy-account-holder-name">Account Holder Name</label>
+                                                <input class="input-field" type="text" id="buy-account-holder-name" name="buy-account-holder-name" placeholder="Enter account holder name">
+                                            </div>
+
+                                            <div class="input-stack">
+                                                <label for="buy-account-number">Account Number</label>
+                                                <input class="input-field" type="number" id="buy-account-number" name="buy-account-number" placeholder="Enter account number" inputmode="numeric">
+                                            </div>
+
+                                            <div class="input-stack">
+                                                <label for="buy-confirm-account-number">Confirm Account Number</label>
+                                                <input class="input-field" type="number" id="buy-confirm-account-number" name="buy-confirm-account-number" placeholder="Re-enter account number" inputmode="numeric">
+                                            </div>
+
+                                            <div class="input-stack">
+                                                <label for="buy-ifsc-code">IFSC Code</label>
+                                                <input class="input-field" type="text" id="buy-ifsc-code" name="buy-ifsc-code" placeholder="Enter IFSC code">
+                                            </div>
+
+                                            <div class="input-stack">
+                                                <label for="buy-account-type">Account Type</label>
+                                                <select class="input-field" id="buy-account-type" name="buy-account-type">
+                                                    <option value="" selected disabled>Select account type</option>
+                                                    <option value="savings">Savings Account</option>
+                                                    <option value="current">Current Account</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="input-stack payment-method-option" data-payment-method="cash-balance" data-payment-context="buy">
+                                            <label class="input-label">Available Cash Balance</label>
+                                            <div class="balance-info">
+                                                <span class="balance-label">Available Balance</span>
+                                                <span class="balance-value">₹50,000</span>
+                                            </div>
+                                        </div>
+
                                         <div class="modal-btn-wrapper">
                                             <button class="modal-btn modal-close modal-cancel-btn" type="button">Cancel</button>
                                             <button class="modal-btn modal-submit-btn" type="submit">Buy Now
@@ -443,7 +483,7 @@
                                         </div>
                                         <p class="modal-head-description">Sell an investment from your portfolio</p>
                                     </div>
-                                    <form class="form-wrapper add-money-form">
+                                    <form class="form-wrapper ">
                                         <div class="input-stack">
                                             <label class="input-label" for="sell-investment">Investment</label>
                                             <select class="input-field" name="sell-investment" id="sell-investment" required>
@@ -507,7 +547,7 @@
                                         </div>
                                         <p class="modal-head-description">Transfer money between accounts</p>
                                     </div>
-                                    <form class="form-wrapper add-money-form">
+                                    <form class="form-wrapper">
                                         <div class="input-stack">
                                             <label class="input-label" for="transfer-from">From</label>
                                             <select class="input-field" id="transfer-from" name="from-account" required>
@@ -520,8 +560,8 @@
                                             <label class="input-label" for="transfer-to">To</label>
                                             <select class="input-field" name="to-account" id="transfer-to" required>
                                                 <option value="" selected disabled>Select account</option>
-                                                <option value="investment-account">Investment Account</option>
                                                 <option value="main-bank">Main Bank Account</option>
+                                                <option value="investment-account">Investment Account</option>
                                             </select>
                                         </div>
                                         <div class="input-stack">
@@ -530,15 +570,15 @@
                                         </div>
                                         <div class="input-stack">
                                             <label class="input-label" for="transfer-note">Note</label>
-                                            <textarea class="vertical-scroll-bar input-field modal-textarea" name="add-moneys-note" id="transfer-Note" placeholder="Enter note"></textarea>
+                                            <textarea class="vertical-scroll-bar input-field modal-textarea" id="transfer-note" name="transfer-note" placeholder="Enter note"></textarea>
                                         </div>
                                         <div class="input-stack">
                                             <span class="input-label">Transfer Fee</span>
-                                            <div class="input-field">₹0.00</div>
+                                            <div class="input-field" id="transfer-fee" data-transfer-fee>₹0</div>
                                         </div>
                                         <div class="input-stack">
                                             <span class="input-label">Total</span>
-                                            <div class="input-field">₹25,000</div>
+                                            <div class="input-field" id="transfer-total" data-transfer-total>₹0</div>
                                         </div>
                                         <div class="modal-btn-wrapper">
                                             <button class="modal-btn modal-close modal-cancel-btn" type="button">Cancel</button>
