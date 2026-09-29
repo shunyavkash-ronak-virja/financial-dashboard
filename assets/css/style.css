@@ -345,13 +345,13 @@ header {
 
 .profile-wrapper-border {
   border-top: 1px solid var(--poseidon-300);
-  margin-block: 14px;
+  margin-block: 12px 8px;
 }
 
 .profile-option-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 .profile-option-btn {
