@@ -529,7 +529,6 @@ $(document).on(
   "input",
   "#ifsc-code",
   function () {
-    /* Convert IFSC to uppercase */
     this.value = this.value.toUpperCase();
   }
 );
@@ -684,7 +683,6 @@ $(document).on(
   "input",
   "#buy-ifsc-code",
   function () {
-    /* Convert IFSC to uppercase */
     this.value = this.value.toUpperCase();
   }
 );
@@ -751,7 +749,7 @@ function resetBuyPaymentMethod() {
 }
 
 /* =========================================================
-   TRANSFER MODAL START
+   TRANSFER - PAYMENT METHOD
 ========================================================= */
 const transferModal = $("#quick-transfer");
 const transferFrom = $("#transfer-from");
