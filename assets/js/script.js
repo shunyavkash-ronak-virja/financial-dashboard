@@ -449,25 +449,14 @@ $(document).ready(function () {
 const addMoneyPaymentMethod = $("#add-money-payment-method");
 const addMoneyModal = $("#quick-add-money");
 
-/* =========================================================
-   ADD MONEY - PAYMENT METHOD CHANGE
-========================================================= */
 addMoneyPaymentMethod.on("change", function () {
   const selectedMethod = $(this).val();
   console.log("Add Money Payment Method:", selectedMethod);
 
-  /* -----------------------------------------
-     Find only Add Money payment sections
-  ----------------------------------------- */
   const paymentMethodOptions = addMoneyModal.find(
     ".payment-method-option"
   );
 
-  /* -----------------------------------------
-     Hide all payment method sections
-     Remove required
-     Clear errors
-  ----------------------------------------- */
   paymentMethodOptions.each(function () {
     const option = $(this);
     option.removeClass("active");
@@ -480,39 +469,23 @@ addMoneyPaymentMethod.on("change", function () {
       .text("");
   });
 
-  /* -----------------------------------------
-     Stop if no method selected
-  ----------------------------------------- */
   if (!selectedMethod) {
     return;
   }
 
-  /* -----------------------------------------
-     Find selected payment method
-  ----------------------------------------- */
   const selectedOption = addMoneyModal.find(
     `.payment-method-option[data-payment-method="${selectedMethod}"]`
   );
 
-
-  /* -----------------------------------------
-     Show selected payment method
-  ----------------------------------------- */
   if (selectedOption.length) {
     selectedOption.addClass("active");
 
-    /* -----------------------------------------
-       Make selected fields required
-    ----------------------------------------- */
     selectedOption
       .find("input, select")
       .prop("required", true);
   }
 });
 
-/* =========================================================
-   ADD MONEY - ACCOUNT NUMBER CONFIRMATION
-========================================================= */
 $(document).on(
   "input",
   "#confirm-account-number",
@@ -525,9 +498,6 @@ $(document).on(
       .closest(".input-stack")
       .find(".input-error");
 
-    /* -----------------------------------------
-       Don't show error when empty
-    ----------------------------------------- */
     if (!confirmAccountNumber) {
       errorMessage
         .removeClass("active")
@@ -535,9 +505,6 @@ $(document).on(
       return;
     }
 
-    /* -----------------------------------------
-       Compare account numbers
-    ----------------------------------------- */
     if (accountNumber !== confirmAccountNumber) {
       errorMessage
         .addClass("active")
@@ -550,9 +517,6 @@ $(document).on(
   }
 );
 
-/* =========================================================
-   ADD MONEY - ACCOUNT NUMBER ONLY NUMBERS
-========================================================= */
 $(document).on(
   "input",
   "#account-number, #confirm-account-number",
@@ -561,9 +525,6 @@ $(document).on(
   }
 );
 
-/* =========================================================
-   ADD MONEY - IFSC CODE
-========================================================= */
 $(document).on(
   "input",
   "#ifsc-code",
@@ -573,24 +534,15 @@ $(document).on(
   }
 );
 
-/* =========================================================
-   ADD MONEY - FORM SUBMIT
-========================================================= */
 $(".add-money-form").on("submit", function (event) {
   event.preventDefault();
   const form = this;
 
-  /* -----------------------------------------
-     Check normal HTML validation
-  ----------------------------------------- */
   if (!form.checkValidity()) {
     form.reportValidity();
     return;
   }
 
-  /* -----------------------------------------
-     Check account numbers
-  ----------------------------------------- */
   const accountNumber =
     $("#account-number").val();
   const confirmAccountNumber =
@@ -613,40 +565,25 @@ $(".add-money-form").on("submit", function (event) {
   }
 });
 
-
-
-/* =========================================================
-   RESET ADD MONEY PAYMENT METHOD
-========================================================= */
 function resetAddMoneyPaymentMethod() {
   const paymentMethodOptions =
     addMoneyModal.find(".payment-method-option");
-  /* -----------------------------------------
-     Reset payment method select
-  ----------------------------------------- */
+
   addMoneyPaymentMethod
     .val("")
     .trigger("change");
-  /* -----------------------------------------
-     Remove active
-  ----------------------------------------- */
+
   paymentMethodOptions
     .removeClass("active");
-  /* -----------------------------------------
-     Remove required
-  ----------------------------------------- */
+
   paymentMethodOptions
     .find("input, select")
     .prop("required", false);
-  /* -----------------------------------------
-     Clear inputs
-  ----------------------------------------- */
+
   paymentMethodOptions
     .find("input")
     .val("");
-  /* -----------------------------------------
-     Reset selects
-  ----------------------------------------- */
+
   paymentMethodOptions
     .find("select")
     .each(function () {
@@ -654,9 +591,7 @@ function resetAddMoneyPaymentMethod() {
         .val("")
         .trigger("change");
     });
-  /* -----------------------------------------
-     Clear errors
-  ----------------------------------------- */
+
   paymentMethodOptions
     .find(".input-error")
     .removeClass("active")
@@ -669,23 +604,14 @@ function resetAddMoneyPaymentMethod() {
 const buyModal = $("#quick-buy");
 const buyPaymentMethod = $("#buy-payment-method");
 
-/* =========================================================
-   BUY - PAYMENT METHOD CHANGE
-========================================================= */
 buyPaymentMethod.on("change", function () {
   const selectedMethod = $(this).val();
   console.log("Buy Payment Method:", selectedMethod);
-  /* -----------------------------------------
-     Find only Buy payment sections
-  ----------------------------------------- */
+
   const paymentMethodOptions = buyModal.find(
     ".payment-method-option"
   );
-  /* -----------------------------------------
-     Hide all payment sections
-     Remove required
-     Clear errors
-  ----------------------------------------- */
+
   paymentMethodOptions.each(function () {
     const option = $(this);
     option.removeClass("active");
@@ -698,41 +624,23 @@ buyPaymentMethod.on("change", function () {
       .text("");
   });
 
-  /* -----------------------------------------
-     Stop if no method selected
-  ----------------------------------------- */
   if (!selectedMethod) {
     return;
   }
 
-  /* -----------------------------------------
-     Find selected payment method
-  ----------------------------------------- */
   const selectedOption = buyModal.find(
     `.payment-method-option[data-payment-method="${selectedMethod}"]`
   );
 
-  /* -----------------------------------------
-     Show selected payment method
-  ----------------------------------------- */
   if (selectedOption.length) {
     selectedOption.addClass("active");
-    /* -----------------------------------------
-       Make visible fields required
-       Bank Account:
-       All bank fields become required.
-       Cash Balance:
-       No input/select, so nothing changes.
-    ----------------------------------------- */
+
     selectedOption
       .find("input, select")
       .prop("required", true);
   }
 });
 
-/* =========================================================
-   BUY - ACCOUNT NUMBER CONFIRMATION
-========================================================= */
 $(document).on(
   "input",
   "#buy-confirm-account-number",
@@ -744,18 +652,14 @@ $(document).on(
     const errorMessage = $(this)
       .closest(".input-stack")
       .find(".input-error");
-    /* -----------------------------------------
-       Don't show error when empty
-    ----------------------------------------- */
+
     if (!confirmAccountNumber) {
       errorMessage
         .removeClass("active")
         .text("");
       return;
     }
-    /* -----------------------------------------
-       Compare account numbers
-    ----------------------------------------- */
+
     if (accountNumber !== confirmAccountNumber) {
       errorMessage
         .addClass("active")
@@ -768,9 +672,6 @@ $(document).on(
   }
 );
 
-/* =========================================================
-   BUY - ACCOUNT NUMBER ONLY NUMBERS
-========================================================= */
 $(document).on(
   "input",
   "#buy-account-number, #buy-confirm-account-number",
@@ -779,9 +680,6 @@ $(document).on(
   }
 );
 
-/* =========================================================
-   BUY - IFSC CODE
-========================================================= */
 $(document).on(
   "input",
   "#buy-ifsc-code",
@@ -791,23 +689,15 @@ $(document).on(
   }
 );
 
-/* =========================================================
-   BUY - FORM SUBMIT
-========================================================= */
 $(".quick-buy").on("submit", function (event) {
   event.preventDefault();
   const form = this;
-  /* -----------------------------------------
-     Check normal HTML validation
-  ----------------------------------------- */
+
   if (!form.checkValidity()) {
     form.reportValidity();
     return;
   }
 
-  /* -----------------------------------------
-     Check account numbers
-  ----------------------------------------- */
   const accountNumber =
     $("#buy-account-number").val();
   const confirmAccountNumber =
@@ -827,38 +717,25 @@ $(".quick-buy").on("submit", function (event) {
   }
 });
 
-/* =========================================================
-   RESET BUY PAYMENT METHOD
-========================================================= */
 function resetBuyPaymentMethod() {
   const paymentMethodOptions =
     buyModal.find(".payment-method-option");
-  /* -----------------------------------------
-     Reset payment method
-  ----------------------------------------- */
+
   buyPaymentMethod
     .val("")
     .trigger("change");
-  /* -----------------------------------------
-     Remove active
-  ----------------------------------------- */
+
   paymentMethodOptions
     .removeClass("active");
-  /* -----------------------------------------
-     Remove required
-  ----------------------------------------- */
+
   paymentMethodOptions
     .find("input, select")
     .prop("required", false);
-  /* -----------------------------------------
-     Clear inputs
-  ----------------------------------------- */
+
   paymentMethodOptions
     .find("input")
     .val("");
-  /* -----------------------------------------
-     Reset selects
-  ----------------------------------------- */
+
   paymentMethodOptions
     .find("select")
     .each(function () {
@@ -866,14 +743,13 @@ function resetBuyPaymentMethod() {
         .val("")
         .trigger("change");
     });
-  /* -----------------------------------------
-     Clear errors
-  ----------------------------------------- */
+
   paymentMethodOptions
     .find(".input-error")
     .removeClass("active")
     .text("");
 }
+
 /* =========================================================
    TRANSFER MODAL START
 ========================================================= */
@@ -884,13 +760,9 @@ const transferCategory = $("#transfer-category");
 const transferAmount = $("#transfer-amount");
 const transferFee = $("#transfer-fee");
 const transferTotal = $("#transfer-total");
-/* =========================================================
-   TRANSFER - UPDATE NICE SELECT
-========================================================= */
+
 function updateTransferTo(options) {
-  /* -----------------------------------------
-     Update original select
-  ----------------------------------------- */
+
   transferTo
     .empty()
     .append(
@@ -902,33 +774,18 @@ function updateTransferTo(options) {
     );
   });
 
-  /* -----------------------------------------
-     Remove old Nice Select
-  ----------------------------------------- */
   transferTo
     .next(".nice-select")
     .remove();
 
-  /* -----------------------------------------
-     Create new Nice Select
-  ----------------------------------------- */
   transferTo.niceSelect();
 
-  /* -----------------------------------------
-     Reset value
-  ----------------------------------------- */
   transferTo.val("");
 }
 
-/* =========================================================
-   TRANSFER - FROM ACCOUNT CHANGE
-========================================================= */
 transferFrom.on("change", function () {
   const selectedAccount = $(this).val();
 
-  /* -----------------------------------------
-     Main Bank Account
-  ----------------------------------------- */
   if (selectedAccount === "main-bank") {
     updateTransferTo([
       {
@@ -939,9 +796,6 @@ transferFrom.on("change", function () {
     transferCategory.text("Investment Transfer");
   }
 
-  /* -----------------------------------------
-     Investment Account
-  ----------------------------------------- */
   else if (selectedAccount === "investment-account") {
     updateTransferTo([
       {
@@ -952,9 +806,6 @@ transferFrom.on("change", function () {
     transferCategory.text("Withdrawal / Return Transfer");
   }
 
-  /* -----------------------------------------
-     No account selected
-  ----------------------------------------- */
   else {
     updateTransferTo([
       {
@@ -970,33 +821,20 @@ transferFrom.on("change", function () {
   }
 });
 
-/* =========================================================
-   TRANSFER - AMOUNT / TOTAL
-========================================================= */
 transferAmount.on("input", function () {
   const amount = parseFloat($(this).val()) || 0;
   const fee = 0;
   const total = amount + fee;
 
-  /* -----------------------------------------
-     Transfer Fee
-  ----------------------------------------- */
   transferFee.text(
     `₹${fee}`
   );
 
-
-  /* -----------------------------------------
-     Total No .00 when number is whole.
-  ----------------------------------------- */
   transferTotal.text(
     `₹${Number.isInteger(total) ? total : total.toFixed(2)}`
   );
 });
 
-/* =========================================================
-   TRANSFER - FORM SUBMIT
-========================================================= */
 transferModal.find("form").on("submit", function (event) {
   event.preventDefault();
   const form = this;
@@ -1004,33 +842,21 @@ transferModal.find("form").on("submit", function (event) {
   const toAccount = transferTo.val();
   const amount = parseFloat(transferAmount.val()) || 0;
 
-  /* -----------------------------------------
-     HTML validation
-  ----------------------------------------- */
   if (!form.checkValidity()) {
     form.reportValidity();
     return;
   }
 
-  /* -----------------------------------------
-     Same account check
-  ----------------------------------------- */
   if (fromAccount === toAccount) {
     alert("You cannot transfer money to the same account.");
     return;
   }
 
-  /* -----------------------------------------
-     Amount check
-  ----------------------------------------- */
   if (amount <= 0) {
     alert("Please enter a valid transfer amount.");
     return;
   }
 
-  /* -----------------------------------------
-     Transfer data
-  ----------------------------------------- */
   console.log("Transfer submitted", {
     from: fromAccount,
     to: toAccount,
@@ -1040,24 +866,14 @@ transferModal.find("form").on("submit", function (event) {
     total: amount
   });
 
-  // Add your Transfer functionality here.
 });
 
-/* =========================================================
-   RESET TRANSFER
-========================================================= */
 function resetTransfer() {
 
-  /* -----------------------------------------
-     Reset From
-  ----------------------------------------- */
   transferFrom
     .val("")
     .niceSelect("update");
 
-  /* -----------------------------------------
-     Reset To
-  ----------------------------------------- */
   transferTo
     .empty()
     .append(
@@ -1072,36 +888,20 @@ function resetTransfer() {
     .val("")
     .niceSelect("update");
 
-  /* -----------------------------------------
-     Reset Category
-  ----------------------------------------- */
   transferCategory.text("Select accounts");
 
-  /* -----------------------------------------
-     Reset Amount
-  ----------------------------------------- */
   transferAmount.val("");
 
-  /* -----------------------------------------
-     Reset Fee
-  ----------------------------------------- */
   transferFee.text("₹0");
 
-  /* -----------------------------------------
-     Reset Total
-  ----------------------------------------- */
   transferTotal.text("₹0");
 
-  /* -----------------------------------------
-     Reset Note
-  ----------------------------------------- */
   $("#transfer-note").val("");
 }
 
 /* =========================================================
    TABLE MODAL FUNCTIONALITY
 ========================================================= */
-
 document.addEventListener("click", function (event) {
 
   const modalButton = event.target.closest(".table-modal-btn");
@@ -1124,20 +924,16 @@ document.addEventListener("click", function (event) {
     return;
   }
 
-  // Clear previous data
   modalBody.innerHTML = "";
 
-  // Update modal title if provided
   if (modalTitle && modalButton.dataset.modalTitle) {
     modalTitle.textContent = modalButton.dataset.modalTitle;
   }
 
-  // Get all data-* attributes
   const data = modalButton.dataset;
 
   Object.entries(data).forEach(([key, value]) => {
 
-    // Don't show these attributes as table rows
     if (
       key === "modal" ||
       key === "modalTitle"
@@ -1146,11 +942,9 @@ document.addEventListener("click", function (event) {
     }
 
     const row = document.createElement("tr");
-
     const labelCell = document.createElement("td");
     const valueCell = document.createElement("td");
 
-    // Convert camelCase into readable text
     const label = key
       .replace(/([A-Z])/g, " $1")
       .replace(/^./, function (char) {
@@ -1164,6 +958,5 @@ document.addEventListener("click", function (event) {
     modalBody.appendChild(row);
   });
 
-  // Open modal
   modal.classList.add("active");
 });
