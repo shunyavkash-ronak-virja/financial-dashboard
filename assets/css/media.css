@@ -138,8 +138,12 @@
     max-width: 100%;
   }
 
-  .summary-value {
+  .modal-head-description {
     font-size: 16px;
+  }
+
+  .modal-table {
+    margin-top: 16px;
   }
 }
 
