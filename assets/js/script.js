@@ -752,339 +752,144 @@ function resetBuyPaymentMethod() {
    TRANSFER - PAYMENT METHOD
 ========================================================= */
 const transferModal = $("#quick-transfer");
-
 const transferFrom = $("#transfer-from");
 const transferTo = $("#transfer-to");
-
 const transferCategory = $("#transfer-category");
-
 const transferAmount = $("#transfer-amount");
 const transferFee = $("#transfer-fee");
 const transferTotal = $("#transfer-total");
 
-
-/* =========================================================
-   TRANSFER - UPDATE NICE SELECT OPTIONS
-========================================================= */
-
 function updateTransferOptions() {
-
   const selectedFrom = transferFrom.val();
   const selectedTo = transferTo.val();
 
-
-  /* ---------------------------------------------------------
-     UPDATE FROM NICE SELECT
-
-     If To = Main Bank Account
-     → Hide Main Bank Account from From
-
-     If To = Investment Account
-     → Hide Investment Account from From
-  --------------------------------------------------------- */
-
   const fromNiceSelect = transferFrom.next(".nice-select");
-
   fromNiceSelect
     .find(".option")
     .each(function () {
-
       const optionValue = $(this).attr("data-value");
-
-      /*
-        Keep placeholder visible
-      */
 
       if (!optionValue) {
         $(this).show();
         return;
       }
 
-
-      /*
-        Hide the account selected in To
-      */
-
       if (optionValue === selectedTo) {
-
         $(this).hide();
-
       } else {
-
         $(this).show();
       }
     });
-
-
-  /* ---------------------------------------------------------
-     UPDATE TO NICE SELECT
-
-     If From = Main Bank Account
-     → Hide Main Bank Account from To
-
-     If From = Investment Account
-     → Hide Investment Account from To
-  --------------------------------------------------------- */
 
   const toNiceSelect = transferTo.next(".nice-select");
 
   toNiceSelect
     .find(".option")
     .each(function () {
-
       const optionValue = $(this).attr("data-value");
-
-      /*
-        Keep placeholder visible
-      */
 
       if (!optionValue) {
         $(this).show();
         return;
       }
 
-
-      /*
-        Hide the account selected in From
-      */
-
       if (optionValue === selectedFrom) {
-
         $(this).hide();
-
       } else {
-
         $(this).show();
       }
     });
 }
 
-
-/* =========================================================
-   TRANSFER - UPDATE CATEGORY
-========================================================= */
-
 function updateTransferCategory() {
-
   const fromAccount = transferFrom.val();
   const toAccount = transferTo.val();
-
-
-  /* Main Bank → Investment Account */
 
   if (
     fromAccount === "main-bank" &&
     toAccount === "investment-account"
   ) {
-
     transferCategory.text("Investment Transfer");
-
     return;
   }
-
-
-  /* Investment Account → Main Bank */
 
   if (
     fromAccount === "investment-account" &&
     toAccount === "main-bank"
   ) {
-
     transferCategory.text("Withdrawal / Return Transfer");
-
     return;
   }
-
-
-  /* Default */
 
   transferCategory.text("Select accounts");
 }
 
-
-/* =========================================================
-   TRANSFER - FROM CHANGE
-========================================================= */
-
 transferFrom.on("change", function () {
-
-  /*
-    Update Nice Select options
-  */
-
   updateTransferOptions();
-
-
-  /*
-    Update category
-  */
-
   updateTransferCategory();
 });
-
-
-/* =========================================================
-   TRANSFER - TO CHANGE
-========================================================= */
 
 transferTo.on("change", function () {
-
-  /*
-    Update Nice Select options
-  */
-
   updateTransferOptions();
-
-
-  /*
-    Update category
-  */
-
   updateTransferCategory();
 });
 
-
-/* =========================================================
-   TRANSFER - AMOUNT / TOTAL
-========================================================= */
-
 transferAmount.on("input", function () {
-
   const amount = parseFloat($(this).val()) || 0;
-
   const fee = 0;
-
   const total = amount + fee;
-
-
-  /* Fee */
 
   transferFee.text(`₹${fee}`);
 
-
-  /* Total */
-
   if (Number.isInteger(total)) {
-
     transferTotal.text(`₹${total}`);
-
   } else {
-
     transferTotal.text(`₹${total.toFixed(2)}`);
   }
 });
 
-
-/* =========================================================
-   TRANSFER - FORM SUBMIT
-========================================================= */
-
 transferModal.find("form").on("submit", function (event) {
-
   event.preventDefault();
 
   const form = this;
-
   const fromAccount = transferFrom.val();
-
   const toAccount = transferTo.val();
-
   const amount =
     parseFloat(transferAmount.val()) || 0;
 
-
-  /* ---------------------------------------------------------
-     BROWSER VALIDATION
-  --------------------------------------------------------- */
-
   if (!form.checkValidity()) {
-
     form.reportValidity();
-
     return;
   }
 
-
-  /* ---------------------------------------------------------
-     PREVENT SAME ACCOUNT TRANSFER
-  --------------------------------------------------------- */
-
   if (fromAccount === toAccount) {
-
     alert(
       "You cannot transfer money to the same account."
     );
-
     return;
   }
 
-
-  /* ---------------------------------------------------------
-     AMOUNT VALIDATION
-  --------------------------------------------------------- */
-
   if (amount <= 0) {
-
     alert(
       "Please enter a valid transfer amount."
     );
-
     return;
   }
 
-
-  /* ---------------------------------------------------------
-     TRANSFER DATA
-  --------------------------------------------------------- */
-
   console.log("Transfer submitted", {
-
     from: fromAccount,
-
     to: toAccount,
-
     category: transferCategory.text(),
-
     amount: amount,
-
     fee: 0,
-
     total: amount
-
   });
-
-
-  /*
-    Add your actual transfer functionality here.
-  */
 });
-
-
-/* =========================================================
-   RESET TRANSFER
-========================================================= */
 
 function resetTransfer() {
 
-  /*
-    ---------------------------------------------------------
-    RESET ORIGINAL SELECT VALUES
-
-    We DON'T remove or recreate options.
-    We DON'T modify the original options.
-    ---------------------------------------------------------
-  */
-
   transferFrom.val("");
-
   transferTo.val("");
-
-
-  /*
-    ---------------------------------------------------------
-    SHOW ALL NICE SELECT OPTIONS
-    ---------------------------------------------------------
-  */
 
   const fromNiceSelect = transferFrom.next(".nice-select");
 
@@ -1092,19 +897,11 @@ function resetTransfer() {
     .find(".option")
     .show();
 
-
   const toNiceSelect = transferTo.next(".nice-select");
 
   toNiceSelect
     .find(".option")
     .show();
-
-
-  /*
-    ---------------------------------------------------------
-    RESET NICE SELECT CURRENT TEXT
-    ---------------------------------------------------------
-  */
 
   fromNiceSelect
     .find(".current")
@@ -1114,57 +911,18 @@ function resetTransfer() {
     .find(".current")
     .text("Select account");
 
-
-  /*
-    ---------------------------------------------------------
-    RESET CATEGORY
-    ---------------------------------------------------------
-  */
-
   transferCategory.text("Select accounts");
-
-
-  /*
-    ---------------------------------------------------------
-    RESET AMOUNT
-    ---------------------------------------------------------
-  */
 
   transferAmount.val("");
 
-
-  /*
-    ---------------------------------------------------------
-    RESET FEE
-    ---------------------------------------------------------
-  */
-
   transferFee.text("₹0");
 
-
-  /*
-    ---------------------------------------------------------
-    RESET TOTAL
-    ---------------------------------------------------------
-  */
-
   transferTotal.text("₹0");
-
-
-  /*
-    ---------------------------------------------------------
-    RESET NOTE
-    ---------------------------------------------------------
-  */
 
   $("#transfer-note").val("");
 }
 
-/* =========================================================
-   TABLE MODAL FUNCTIONALITY
-========================================================= */
 document.addEventListener("click", function (event) {
-
   const modalButton = event.target.closest(".table-modal-btn");
 
   if (!modalButton) {
@@ -1205,7 +963,6 @@ document.addEventListener("click", function (event) {
     const row = document.createElement("tr");
     const labelCell = document.createElement("td");
     const valueCell = document.createElement("td");
-
     const label = key
       .replace(/([A-Z])/g, " $1")
       .replace(/^./, function (char) {
