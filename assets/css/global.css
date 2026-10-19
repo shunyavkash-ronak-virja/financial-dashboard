@@ -224,6 +224,10 @@ textarea::placeholder {
   }
 }
 
+.outline-padding-0 {
+  padding: 0;
+}
+
 .min-w-0 {
   min-width: 0;
 }
