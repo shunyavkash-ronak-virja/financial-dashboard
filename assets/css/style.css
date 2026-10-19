@@ -442,6 +442,7 @@ main::-webkit-scrollbar-thumb {
 .summary-range {
   display: flex;
   align-items: center;
+  gap: 4px;
   font-size: 12px;
   line-height: 1.1;
   font-weight: 500;
